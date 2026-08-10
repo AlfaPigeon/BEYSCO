@@ -1,0 +1,197 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { useTranslations, getLocalePath, type Lang } from '../../i18n';
+
+export const prerender = true;
+
+export function getStaticPaths() {
+  return [{ params: { lang: 'en' } }, { params: { lang: 'tr' } }];
+}
+
+const { lang } = Astro.params as { lang: Lang };
+const t = useTranslations(lang);
+
+const isEN = lang === 'en';
+---
+
+<Layout title={`${t('footer.termsTitle')} — BEYSCO`} lang={lang}>
+  <div class="relative overflow-hidden">
+    <div class="absolute inset-0 orbital-bg opacity-20 pointer-events-none z-0"></div>
+
+    <!-- Hero -->
+    <header class="relative z-10 pt-section-padding pb-[80px] px-margin-mobile md:px-margin-desktop">
+      <div class="max-w-container-max mx-auto">
+        <a href={getLocalePath(lang, '/')} class="inline-flex items-center gap-1 font-label-sm text-label-sm text-secondary uppercase tracking-widest mb-8 hover:text-primary transition-colors">
+          <span class="material-symbols-outlined" style="font-size:16px">arrow_back</span>
+          {isEN ? 'Back' : 'Geri'}
+        </a>
+        <span class="block font-label-sm text-label-sm uppercase tracking-widest text-secondary mb-4">{isEN ? 'Legal' : 'Yasal'}</span>
+        <h1 class="font-headline-xl text-headline-xl text-primary max-w-3xl">{t('footer.termsTitle')}</h1>
+        <p class="font-body-md text-body-md text-on-surface-variant mt-4">
+          {isEN ? 'Last updated: January 1, 2026' : 'Son güncelleme: 1 Ocak 2026'}
+        </p>
+      </div>
+    </header>
+
+    <!-- Content -->
+    <div class="relative z-10 pb-section-padding px-margin-mobile md:px-margin-desktop">
+      <div class="max-w-container-max mx-auto grid grid-cols-1 lg:grid-cols-12 gap-gutter">
+
+        <!-- TOC sidebar -->
+        <aside class="lg:col-span-3 hidden lg:block">
+          <div class="sticky top-24 bg-surface-container-lowest rounded-lg border border-outline-variant/30 ambient-shadow p-6">
+            <h3 class="font-label-sm text-label-sm uppercase tracking-widest text-on-surface-variant mb-4">
+              {isEN ? 'Contents' : 'İçindekiler'}
+            </h3>
+            <nav class="space-y-2">
+              {(isEN ? [
+                ['#acceptance', 'Acceptance'],
+                ['#services', 'Services'],
+                ['#accounts', 'Accounts & Access'],
+                ['#ip', 'Intellectual Property'],
+                ['#liability', 'Limitation of Liability'],
+                ['#termination', 'Termination'],
+                ['#governing', 'Governing Law'],
+                ['#contact-us', 'Contact Us'],
+              ] : [
+                ['#acceptance', 'Kabul'],
+                ['#services', 'Hizmetler'],
+                ['#accounts', 'Hesaplar ve Erişim'],
+                ['#ip', 'Fikri Mülkiyet'],
+                ['#liability', 'Sorumluluk Sınırlaması'],
+                ['#termination', 'Fesih'],
+                ['#governing', 'Geçerli Hukuk'],
+                ['#contact-us', 'İletişim'],
+              ]).map(([href, label]) => (
+                <a href={href} class="block font-label-sm text-label-sm text-on-surface-variant hover:text-secondary transition-colors py-1">
+                  {label}
+                </a>
+              ))}
+            </nav>
+          </div>
+        </aside>
+
+        <!-- Body -->
+        <article class="lg:col-span-9 bg-surface-container-lowest rounded-lg border border-outline-variant/30 ambient-shadow p-8 md:p-12 space-y-12 font-body-md text-body-md text-on-surface-variant leading-relaxed">
+
+          {isEN ? (
+            <>
+              <section id="acceptance">
+                <h2 class="font-headline-lg text-headline-lg text-primary mb-4">1. Acceptance of Terms</h2>
+                <p>By accessing or using any BEYSCO Technology Integrator service, platform, or website (collectively, the "Services"), you agree to be bound by these Terms of Service ("Terms"). If you do not agree to these Terms, do not use the Services. These Terms apply to all users, clients, and visitors.</p>
+              </section>
+
+              <section id="services">
+                <h2 class="font-headline-lg text-headline-lg text-primary mb-4">2. Services</h2>
+                <p>BEYSCO provides enterprise AI integration, cloud infrastructure, data engineering, and strategic technology consulting services. The specific scope of services is defined in individual Master Service Agreements ("MSAs") or Statements of Work ("SOWs") executed between BEYSCO and each client.</p>
+                <p class="mt-4">BEYSCO reserves the right to modify, suspend, or discontinue any part of the Services at any time with reasonable notice. We will not be liable for any modification, suspension, or discontinuation of Services.</p>
+              </section>
+
+              <section id="accounts">
+                <h2 class="font-headline-lg text-headline-lg text-primary mb-4">3. Accounts & Access</h2>
+                <p>Access to certain BEYSCO platforms requires an account. You are responsible for:</p>
+                <ul class="list-disc pl-6 mt-4 space-y-2">
+                  <li>Maintaining the confidentiality of your account credentials</li>
+                  <li>All activities that occur under your account</li>
+                  <li>Notifying BEYSCO immediately of any unauthorized access or security breach</li>
+                </ul>
+                <p class="mt-4">BEYSCO reserves the right to terminate or suspend accounts that violate these Terms or applicable law.</p>
+              </section>
+
+              <section id="ip">
+                <h2 class="font-headline-lg text-headline-lg text-primary mb-4">4. Intellectual Property</h2>
+                <p>All content, methodologies, software, tools, and documentation developed by BEYSCO and made available through the Services remain the exclusive intellectual property of BEYSCO Technology Integrator unless expressly stated otherwise in a written agreement.</p>
+                <p class="mt-4">Client data and pre-existing client intellectual property remain the property of the respective client. BEYSCO is granted a limited, non-exclusive licence to process such data solely to deliver the contracted Services.</p>
+              </section>
+
+              <section id="liability">
+                <h2 class="font-headline-lg text-headline-lg text-primary mb-4">5. Limitation of Liability</h2>
+                <p>To the fullest extent permitted by applicable law, BEYSCO shall not be liable for any indirect, incidental, special, consequential, or punitive damages, including but not limited to loss of profits, data, or goodwill, arising out of or in connection with your use of the Services.</p>
+                <p class="mt-4">BEYSCO's total cumulative liability arising out of or relating to these Terms shall not exceed the amounts paid by you to BEYSCO in the twelve (12) months preceding the claim.</p>
+              </section>
+
+              <section id="termination">
+                <h2 class="font-headline-lg text-headline-lg text-primary mb-4">6. Termination</h2>
+                <p>Either party may terminate a service engagement in accordance with the terms of the applicable MSA or SOW. BEYSCO may suspend or terminate access to the Services immediately if you materially breach these Terms or engage in conduct that could harm BEYSCO, its clients, or third parties.</p>
+                <p class="mt-4">Upon termination, provisions that by their nature should survive will continue to apply, including intellectual property rights, confidentiality obligations, and limitation of liability.</p>
+              </section>
+
+              <section id="governing">
+                <h2 class="font-headline-lg text-headline-lg text-primary mb-4">7. Governing Law</h2>
+                <p>These Terms are governed by the laws of England and Wales. Any disputes arising under these Terms shall be subject to the exclusive jurisdiction of the courts of England and Wales, unless otherwise agreed in a specific service agreement.</p>
+              </section>
+
+              <section id="contact-us">
+                <h2 class="font-headline-lg text-headline-lg text-primary mb-4">8. Contact Us</h2>
+                <p>For questions about these Terms, contact our Legal team:</p>
+                <div class="mt-4 p-6 bg-surface-container-low rounded border border-outline-variant/30">
+                  <p class="font-medium text-on-surface">BEYSCO Technology Integrator — Legal</p>
+                  <p class="mt-1">Email: <a href="mailto:legal@beysco.com" class="text-secondary hover:underline">legal@beysco.com</a></p>
+                  <p class="mt-1">Address: Büyükdere Plaza No:195, Şişli / İstanbul</p>
+                </div>
+              </section>
+            </>
+          ) : (
+            <>
+              <section id="acceptance">
+                <h2 class="font-headline-lg text-headline-lg text-primary mb-4">1. Koşulların Kabulü</h2>
+                <p>BEYSCO Technology Integrator'ın herhangi bir hizmetine, platformuna veya web sitesine (toplu olarak "Hizmetler") erişerek veya bunları kullanarak bu Kullanım Koşullarına ("Koşullar") bağlı olmayı kabul etmiş olursunuz. Bu Koşulları kabul etmiyorsanız Hizmetleri kullanmayın. Bu Koşullar tüm kullanıcılar, müşteriler ve ziyaretçiler için geçerlidir.</p>
+              </section>
+
+              <section id="services">
+                <h2 class="font-headline-lg text-headline-lg text-primary mb-4">2. Hizmetler</h2>
+                <p>BEYSCO, kurumsal yapay zeka entegrasyonu, bulut altyapısı, veri mühendisliği ve stratejik teknoloji danışmanlığı hizmetleri sunmaktadır. Hizmetlerin özel kapsamı, BEYSCO ile her müşteri arasında imzalanan Çerçeve Hizmet Sözleşmelerinde ("ÇHS") veya Çalışma Tanımlarında ("ÇT") belirlenir.</p>
+                <p class="mt-4">BEYSCO, Hizmetlerin herhangi bir bölümünü makul bir bildirimle istediği zaman değiştirme, askıya alma veya durdurma hakkını saklı tutar. Hizmetlerin değiştirilmesi, askıya alınması veya durdurulmasından dolayı sorumlu tutulamayız.</p>
+              </section>
+
+              <section id="accounts">
+                <h2 class="font-headline-lg text-headline-lg text-primary mb-4">3. Hesaplar ve Erişim</h2>
+                <p>Belirli BEYSCO platformlarına erişim için hesap gerekmektedir. Şunlardan sorumlusunuz:</p>
+                <ul class="list-disc pl-6 mt-4 space-y-2">
+                  <li>Hesap kimlik bilgilerinizin gizliliğini korumak</li>
+                  <li>Hesabınız altında gerçekleşen tüm faaliyetler</li>
+                  <li>Yetkisiz erişim veya güvenlik ihlali durumunda BEYSCO'yu derhal bilgilendirmek</li>
+                </ul>
+                <p class="mt-4">BEYSCO, bu Koşulları veya yürürlükteki mevzuatı ihlal eden hesapları sonlandırma veya askıya alma hakkını saklı tutar.</p>
+              </section>
+
+              <section id="ip">
+                <h2 class="font-headline-lg text-headline-lg text-primary mb-4">4. Fikri Mülkiyet</h2>
+                <p>BEYSCO tarafından geliştirilen ve Hizmetler aracılığıyla sunulan tüm içerik, metodoloji, yazılım, araç ve belgeler, yazılı bir sözleşmede açıkça aksi belirtilmedikçe BEYSCO Technology Integrator'ın münhasır fikri mülkiyeti olmaya devam eder.</p>
+                <p class="mt-4">Müşteri verileri ve önceden var olan müşteri fikri mülkiyeti, ilgili müşterinin mülkiyetinde kalır. BEYSCO'ya, söz konusu verileri yalnızca sözleşmeli Hizmetleri sunmak amacıyla işlemek üzere sınırlı ve münhasır olmayan bir lisans verilir.</p>
+              </section>
+
+              <section id="liability">
+                <h2 class="font-headline-lg text-headline-lg text-primary mb-4">5. Sorumluluk Sınırlaması</h2>
+                <p>Yürürlükteki mevzuatın izin verdiği azami ölçüde BEYSCO, Hizmetleri kullanımınızdan kaynaklanan veya bununla bağlantılı kâr, veri veya itibar kaybı dahil ancak bunlarla sınırlı olmaksızın hiçbir dolaylı, arızi, özel, sonuçsal veya cezai zarardan sorumlu tutulamaz.</p>
+                <p class="mt-4">BEYSCO'nun bu Koşullardan kaynaklanan veya bunlarla ilgili toplam kümülatif sorumluluğu, talep tarihinden önceki on iki (12) ay içinde BEYSCO'ya ödediğiniz tutarları aşamaz.</p>
+              </section>
+
+              <section id="termination">
+                <h2 class="font-headline-lg text-headline-lg text-primary mb-4">6. Fesih</h2>
+                <p>Her iki taraf da ilgili ÇHS veya ÇT'nin koşullarına uygun olarak bir hizmet ilişkisini sona erdirebilir. BEYSCO, bu Koşulları esasen ihlal etmeniz veya BEYSCO'ya, müşterilerine ya da üçüncü taraflara zarar verebilecek davranışlarda bulunmanız halinde Hizmetlere erişimi derhal askıya alabilir veya sonlandırabilir.</p>
+                <p class="mt-4">Fesih sonrasında doğası gereği yürürlükte kalması gereken hükümler —fikri mülkiyet hakları, gizlilik yükümlülükleri ve sorumluluk sınırlaması dahil— geçerliliğini korumaya devam eder.</p>
+              </section>
+
+              <section id="governing">
+                <h2 class="font-headline-lg text-headline-lg text-primary mb-4">7. Geçerli Hukuk</h2>
+                <p>Bu Koşullar, İngiltere ve Galler hukukuna tabidir. Özel bir hizmet sözleşmesinde aksi kararlaştırılmadıkça, bu Koşullar kapsamında ortaya çıkan anlaşmazlıklar İngiltere ve Galler mahkemelerinin münhasır yargı yetkisine tabi olacaktır.</p>
+              </section>
+
+              <section id="contact-us">
+                <h2 class="font-headline-lg text-headline-lg text-primary mb-4">8. İletişim</h2>
+                <p>Bu Koşullara ilişkin sorularınız için Hukuk ekibimizle iletişime geçin:</p>
+                <div class="mt-4 p-6 bg-surface-container-low rounded border border-outline-variant/30">
+                  <p class="font-medium text-on-surface">BEYSCO Technology Integrator — Hukuk</p>
+                  <p class="mt-1">E-posta: <a href="mailto:legal@beysco.com" class="text-secondary hover:underline">legal@beysco.com</a></p>
+                  <p class="mt-1">Adres: Büyükdere Plaza No:195, Şişli / İstanbul</p>
+                </div>
+              </section>
+            </>
+          )}
+
+        </article>
+      </div>
+    </div>
+  </div>
+</Layout>

@@ -1,0 +1,284 @@
+export const languages = {
+  en: 'English',
+  tr: 'Türkçe',
+} as const;
+
+export type Lang = keyof typeof languages;
+export const defaultLang: Lang = 'en';
+
+export const ui = {
+  en: {
+    // nav
+    'nav.services': 'Services',
+    'nav.aiIntegration': 'AI Integration',
+    'nav.team': 'Team',
+    'nav.partners': 'Partners',
+    'nav.contact': 'Contact',
+    'nav.getStarted': 'Get Started',
+    'nav.capabilities': 'Capabilities',
+    'nav.home': 'Home',
+    // footer
+    'footer.tagline': 'Precision Integration for the AI Era.',
+    'footer.legal': 'Legal',
+    'footer.privacy': 'Privacy Policy',
+    'footer.terms': 'Terms of Service',
+    'footer.privacyTitle': 'Privacy Policy',
+    'footer.termsTitle': 'Terms of Service',
+    'footer.connect': 'Connect',
+    'footer.linkedin': 'LinkedIn',
+    'footer.offices': 'Offices',
+    'footer.copy': '© 2026 BEYSCO Technology Integrator. All rights reserved.',
+    // team page
+    'team.hero': "Architects of Tomorrow's Infrastructure",
+    'team.heroSub':
+      'Our methodical approach to AI integration is driven by a collective of visionary engineers, data scientists, and strategic leaders dedicated to precision and operational excellence.',
+    'team.coreLeadership': 'Core Leadership',
+    'team.specialists': 'Engineering & AI Specialists',
+    'team.specialistsSub':
+      'The practitioners executing precision deployments across global infrastructure networks.',
+    'team.viewProfile': 'View Profile',
+    'team.elena.title': 'Chief Executive Officer',
+    'team.elena.bio':
+      'With over two decades architecting complex enterprise transformations, Elena leads BEYSCO\'s vision bridging the gap between legacy infrastructure and next-generation AI paradigms. Her methodical leadership ensures stability during aggressive technological pivots.',
+    'team.elena.tag': 'STRATEGY INTEGRATION',
+    'team.marcus.title': 'Chief Technology Officer',
+    'team.marcus.bio':
+      "Marcus orchestrates the underlying technical frameworks that power our integrations. His obsession with system resilience and scalable logic forms the backbone of BEYSCO's engineering standards.",
+    'team.marcus.tag': 'SYSTEM ARCHITECTURE',
+    'team.sarah.title': 'Tech Lead',
+    'team.sarah.tag': 'NEURAL NETS AI',
+    'team.aris.title': 'AI Solutions Architect',
+    'team.aris.tag': 'DATA PIPELINES',
+    'team.chloe.title': 'Systems Integration Eng.',
+    'team.chloe.tag': 'SEC-OPS',
+    'team.david.title': 'Security Protocols Lead',
+    'team.david.tag': 'CLOUDOPS',
+    // services page
+    'services.hero': 'End-to-End Technology Integration',
+    'services.heroSub':
+      'We bridge the critical gap between complex AI infrastructure and human-centric decision-making, engineering resilient systems that drive measurable business impact.',
+    'services.cta': 'Schedule a Meeting',
+    'services.exploreAI': 'Explore AI Integration',
+    'services.coreComp': 'Core Competencies',
+    'services.aiTitle': 'Conversational AI & LLMs',
+    'services.aiDesc':
+      'Customizing and deploying enterprise-grade conversational AI. We integrate cutting-edge language models seamlessly into your existing architecture, leveraging platforms like Parloa for unparalleled customer interaction.',
+    'services.cloudTitle': 'Cloud Infrastructure',
+    'services.cloudDesc':
+      'Designing scalable, resilient, and highly available cloud systems tailored to specific workload demands.',
+    'services.secTitle': 'Enterprise Security',
+    'services.secDesc':
+      'Implementing robust zero-trust architectures and rigorous data security protocols across all integrated systems.',
+    'services.stratTitle': 'Strategic Consulting',
+    'services.stratDesc':
+      "Aligning deep technological implementation with concrete business ROI. We don't just deploy systems; we map them directly to organizational objectives.",
+    'services.viewCases': 'View Case Studies',
+    'services.methodology': 'Methodical Integration',
+    'services.methodSub': 'A rigorous, structured approach to deploying complex technologies.',
+    'services.step1Title': '1. Discovery',
+    'services.step1Desc':
+      'Deep infrastructural audit and requirement gathering to establish a solid baseline.',
+    'services.step2Title': '2. Architecture',
+    'services.step2Desc':
+      'Designing scalable, secure blueprints aligning with defined ROI objectives.',
+    'services.step3Title': '3. Implementation',
+    'services.step3Desc':
+      'Precision deployment, focusing on minimal disruption and maximum data integrity.',
+    'services.step4Title': '4. Optimization',
+    'services.step4Desc':
+      'Continuous monitoring, tuning, and iterative improvement of the integrated systems.',
+    // partners page
+    'partners.hero': 'Driving Conversational Excellence Together',
+    'partners.heroSub':
+      'BEYSCO and Parloa unite to seamlessly integrate cutting-edge AI into your enterprise infrastructure, transforming customer interactions with precision and scale.',
+    'partners.badge1': 'BEYSCO',
+    'partners.badge2': 'INTEGRATION',
+    'partners.sectionTitle': 'Architecting the Future of Dialogue',
+    'partners.sectionDesc':
+      "We combine Parloa's powerful AI dialogue management platform with BEYSCO's methodical integration expertise. This ensures that advanced conversational agents are not just deployed, but deeply woven into your existing technical fabric with uncompromising security and reliability.",
+    'partners.viewArch': 'View Architecture',
+    'partners.capabilities': 'Key Capabilities',
+    'partners.cap1Title': 'Rapid Deployment',
+    'partners.cap1Desc': 'Streamlined processes for swift go-live.',
+    'partners.cap2Title': 'Enterprise Security',
+    'partners.cap2Desc': 'Compliance-first infrastructure design.',
+    'partners.cap3Title': 'Custom AI Models',
+    'partners.cap3Desc': 'Tailored cognitive responses via Parloa.',
+    'partners.caseLabel': 'CASE STUDY',
+    'partners.caseTitle': 'Global Telecom Implementation',
+    'partners.caseDesc':
+      'Discover how our joint solution managed over 1 million concurrent voice interactions with sub-second latency, redefining customer support standards.',
+    'partners.readFull': 'READ FULL STUDY',
+    // contact page
+    'contact.hero': "Let's Architect Your AI Future.",
+    'contact.heroSub': 'Initiate a technical consultation with our engineering team to design, deploy, and scale intelligent infrastructure tailored to your operational ecosystem.',
+    'contact.directChannels': 'Direct Channels',
+    'contact.emailLabel': 'Email Support',
+    'contact.email': 'info@beysco.com',
+    'contact.phoneLabel': 'Global Hotline',
+    'contact.phone': '+1 (800) BEY-TECH',
+    'contact.linkedinLabel': 'Professional Network',
+    'contact.globalPresence': 'Global Presence',
+    'contact.offices': 'Offices',
+    'contact.formBadge': 'Contact Form',
+    'contact.formTitle': 'Technical Inquiry',
+    'contact.formDesc': 'Provide preliminary details to ensure we route your request to the appropriate architectural division.',
+    'contact.nameLabel': 'Full Name',
+    'contact.namePlaceholder': 'Jane Doe',
+    'contact.companyLabel': 'Company',
+    'contact.companyPlaceholder': 'Enterprise Corp.',
+    'contact.emailFormLabel': 'Work Email',
+    'contact.emailFormPlaceholder': 'jane.doe@enterprise.com',
+    'contact.serviceLabel': 'Primary Service Interest',
+    'contact.serviceDefault': 'Select architectural domain...',
+    'contact.serviceAI': 'AI Integration & Deployment',
+    'contact.serviceCloud': 'Cloud Infrastructure Optimization',
+    'contact.serviceData': 'Enterprise Data Engineering',
+    'contact.serviceSecurity': 'Security & Compliance Audits',
+    'contact.serviceOther': 'Other Technical Inquiry',
+    'contact.projectLabel': 'Project Specifications',
+    'contact.projectPlaceholder': 'Briefly describe your current architecture, intended goals, and any specific technical constraints...',
+    'contact.submit': 'Submit Inquiry',
+    'contact.privacyText': 'By submitting this form, you agree to our',
+    'contact.privacyLink': 'Privacy Policy',
+    'contact.privacySuffix': 'regarding data processing.',
+  },
+  tr: {
+    // nav
+    'nav.services': 'Hizmetler',
+    'nav.aiIntegration': 'Yapay Zeka Entegrasyonu',
+    'nav.team': 'Ekip',
+    'nav.partners': 'Ortaklar',
+    'nav.contact': 'İletişim',
+    'nav.getStarted': 'Başlayın',
+    'nav.capabilities': 'Yetenekler',
+    'nav.home': 'Ana Sayfa',
+    // footer
+    'footer.tagline': 'Yapay Zeka Çağında Hassas Entegrasyon.',
+    'footer.legal': 'Yasal',
+    'footer.privacy': 'Gizlilik Politikası',
+    'footer.terms': 'Kullanım Koşulları',
+    'footer.privacyTitle': 'Gizlilik Politikası',
+    'footer.termsTitle': 'Kullanım Koşulları',
+    'footer.connect': 'Bağlantı',
+    'footer.linkedin': 'LinkedIn',
+    'footer.offices': 'Ofisler',
+    'footer.copy': '© 2026 BEYSCO. Tüm hakları saklıdır.',
+    // team page
+    'team.hero': 'Geleceğin Altyapısının Mimarları',
+    'team.heroSub':
+      'Yapay zeka entegrasyonuna metodolojik yaklaşımımız; hassasiyet ve operasyonel mükemmeliyete adanmış vizyoner mühendisler, veri bilimciler ve stratejik liderlerden oluşan bir kolektif tarafından yürütülmektedir.',
+    'team.coreLeadership': 'Temel Liderlik',
+    'team.specialists': 'Mühendislik ve Yapay Zeka Uzmanları',
+    'team.specialistsSub':
+      'Küresel altyapı ağlarında hassas konuşlandırmalar gerçekleştiren uzmanlar.',
+    'team.viewProfile': 'Profili Görüntüle',
+    'team.elena.title': 'İcra Kurulu Başkanı',
+    'team.elena.bio':
+      "Elena, yirmi yılı aşkın kurumsal dönüşüm deneyimiyle BEYSCO'nun eski altyapıdan yeni nesil yapay zeka paradigmalarına geçişini yönetiyor. Metodolojik liderliği, agresif teknolojik dönüşümlerde istikrarı güvence altına alıyor.",
+    'team.elena.tag': 'STRATEJİ ENTEGRASYONU',
+    'team.marcus.title': 'Baş Teknoloji Sorumlusu',
+    'team.marcus.bio':
+      "Marcus, entegrasyonlarımıza güç veren teknik altyapıları yönetiyor. Sistem dayanıklılığı ve ölçeklenebilir mantığa olan bağlılığı, BEYSCO'nun mühendislik standartlarının omurgasını oluşturuyor.",
+    'team.marcus.tag': 'SİSTEM MİMARİSİ',
+    'team.sarah.title': 'Teknik Lider',
+    'team.sarah.tag': 'SİNİR AĞLARI YZ',
+    'team.aris.title': 'Yapay Zeka Çözümleri Mimarı',
+    'team.aris.tag': 'VERİ AKIŞLARI',
+    'team.chloe.title': 'Sistem Entegrasyon Müh.',
+    'team.chloe.tag': 'GÜV-OPS',
+    'team.david.title': 'Güvenlik Protokolleri Lideri',
+    'team.david.tag': 'BULUTOPS',
+    // services page
+    'services.hero': 'Uçtan Uca Teknoloji Entegrasyonu',
+    'services.heroSub':
+      'Karmaşık yapay zeka altyapısı ile insan merkezli karar alma arasındaki kritik boşluğu kapatarak ölçülebilir iş etkisi yaratan dayanıklı sistemler inşa ediyoruz.',
+    'services.cta': 'Görüşme Planlayın',
+    'services.exploreAI': 'Yapay Zeka Entegrasyonunu Keşfedin',
+    'services.coreComp': 'Temel Yetkinlikler',
+    'services.aiTitle': 'Konuşma Yapay Zekası ve Büyük Dil Modelleri',
+    'services.aiDesc':
+      "Kurumsal düzeyde konuşma yapay zekasını özelleştirip konuşlandırıyoruz. Parloa gibi platformlardan yararlanarak en son dil modellerini mevcut mimarinize sorunsuz biçimde entegre ediyoruz.",
+    'services.cloudTitle': 'Bulut Altyapısı',
+    'services.cloudDesc':
+      'Belirli iş yükü taleplerine uygun ölçeklenebilir, dayanıklı ve yüksek kullanılabilirlikli bulut sistemleri tasarlıyoruz.',
+    'services.secTitle': 'Kurumsal Güvenlik',
+    'services.secDesc':
+      'Tüm entegre sistemlerde sıfır güven mimarileri ve titiz veri güvenliği protokolleri uyguluyoruz.',
+    'services.stratTitle': 'Stratejik Danışmanlık',
+    'services.stratDesc':
+      'Derin teknolojik uygulamayı somut iş yatırım getirisiyle hizalıyoruz. Sadece sistemleri konuşlandırmıyoruz; onları doğrudan kurumsal hedeflere bağlıyoruz.',
+    'services.viewCases': 'Vaka Çalışmalarını Görüntüle',
+    'services.methodology': 'Metodolojik Entegrasyon',
+    'services.methodSub': 'Karmaşık teknolojileri konuşlandırmak için titiz, yapılandırılmış bir yaklaşım.',
+    'services.step1Title': '1. Keşif',
+    'services.step1Desc':
+      'Sağlam bir temel oluşturmak için derin altyapı denetimi ve gereksinim toplama.',
+    'services.step2Title': '2. Mimari',
+    'services.step2Desc':
+      'Tanımlı yatırım getirisi hedefleriyle uyumlu ölçeklenebilir, güvenli planlar tasarlama.',
+    'services.step3Title': '3. Uygulama',
+    'services.step3Desc':
+      'Minimum aksaklık ve maksimum veri bütünlüğüne odaklanan hassas konuşlandırma.',
+    'services.step4Title': '4. Optimizasyon',
+    'services.step4Desc':
+      'Entegre sistemlerin sürekli izlenmesi, ayarlanması ve yinelemeli iyileştirilmesi.',
+    // partners page
+    'partners.hero': 'Birlikte Konuşma Mükemmelliğini İlerlettik',
+    'partners.heroSub':
+      "BEYSCO ve Parloa, en son yapay zekayı kurumsal altyapınıza sorunsuz biçimde entegre etmek ve müşteri etkileşimlerini hassasiyet ve ölçekle dönüştürmek için bir araya geliyor.",
+    'partners.badge1': 'BEYSCO',
+    'partners.badge2': 'ENTEGRASYON',
+    'partners.sectionTitle': 'Diyaloğun Geleceğini Tasarlıyoruz',
+    'partners.sectionDesc':
+      "Parloa'nın güçlü yapay zeka diyalog yönetim platformunu BEYSCO'nun metodolojik entegrasyon uzmanlığıyla birleştiriyoruz. Bu sayede gelişmiş konuşma ajanları yalnızca konuşlandırılmakla kalmıyor; taviz vermez güvenlik ve güvenilirlikle mevcut teknik yapınıza derinlemesine entegre ediliyor.",
+    'partners.viewArch': 'Mimariyi Görüntüle',
+    'partners.capabilities': 'Temel Yetenekler',
+    'partners.cap1Title': 'Hızlı Konuşlandırma',
+    'partners.cap1Desc': 'Hızlı canlıya geçiş için kolaylaştırılmış süreçler.',
+    'partners.cap2Title': 'Kurumsal Güvenlik',
+    'partners.cap2Desc': 'Uyumluluk öncelikli altyapı tasarımı.',
+    'partners.cap3Title': 'Özel Yapay Zeka Modelleri',
+    'partners.cap3Desc': "Parloa aracılığıyla özelleştirilmiş bilişsel yanıtlar.",
+    'partners.caseLabel': 'VAKA ÇALIŞMASI',
+    'partners.caseTitle': 'Küresel Telekom Uygulaması',
+    'partners.caseDesc':
+      'Ortak çözümümüzün saniyenin altında gecikmeyle 1 milyondan fazla eş zamanlı sesli etkileşimi nasıl yönettiğini ve müşteri desteği standartlarını nasıl yeniden tanımladığını keşfedin.',
+    'partners.readFull': 'TAM ÇALIŞMAYI OKU',
+    // contact page
+    'contact.hero': 'Yapay Zeka Geleceğinizi Birlikte Tasarlayalım.',
+    'contact.heroSub': 'Operasyonel ekosisteminize uygun akıllı altyapı tasarımı, konuşlandırma ve ölçeklendirme için mühendislik ekibimizle teknik danışmanlık başlatın.',
+    'contact.directChannels': 'İletişim Kanalları',
+    'contact.emailLabel': 'E-posta',
+    'contact.email': 'info@beysco.com',
+    'contact.phoneLabel': 'Telefon Numarası',
+    'contact.phone': '+1 (800) BEY-TECH',
+    'contact.linkedinLabel': 'Profesyonel Ağ',
+    'contact.globalPresence': 'Ofisler',
+    'contact.offices': 'Ofisler',
+    'contact.formBadge': 'İletişim Formu',
+    'contact.formTitle': 'Teknik İnceleme Talebi',
+    'contact.formDesc': 'İsteğinizi doğru mimari bölüme yönlendirmemiz için lütfen ön bilgiler sağlayın.',
+    'contact.nameLabel': 'Tam Adı',
+    'contact.namePlaceholder': 'Ayşe Yılmaz',
+    'contact.companyLabel': 'Şirket',
+    'contact.companyPlaceholder': 'Kurumsal A.Ş.',
+    'contact.emailFormLabel': 'İş E-postası',
+    'contact.emailFormPlaceholder': 'ayse.yilmaz@kurumsal.com',
+    'contact.serviceLabel': 'Birincil Hizmet İlgi Alanı',
+    'contact.serviceDefault': 'Hizmet ilgi alanı seçin...',
+    'contact.serviceAI': 'Yapay Zeka Entegrasyonu ve Konuşlandırma',
+    'contact.serviceCloud': 'Bulut Altyapısı Optimizasyonu',
+    'contact.serviceData': 'Kurumsal Veri Mühendisliği',
+    'contact.serviceSecurity': 'Güvenlik ve Uyumluluk Denetimleri',
+    'contact.serviceOther': 'Diğer',
+    'contact.projectLabel': 'Proje Özellikleri',
+    'contact.projectPlaceholder': 'Mevcut mimarinizi, hedeflerinizi ve teknik kısıtlamalarınızı kısaca açıklayın...',
+    'contact.submit': 'Gönder',
+    'contact.privacyText': 'Bu formu göndererek',
+    'contact.privacyLink': 'Gizlilik Politikamızı',
+    'contact.privacySuffix': 'veri işleme konusunda kabul etmiş olursunuz.',
+  },
+} as const;
+
+export type UIKey = keyof (typeof ui)[typeof defaultLang];

@@ -1,0 +1,97 @@
+﻿---
+import { getLangFromUrl, useTranslations, getLocalePath, languages, type Lang } from '../i18n';
+
+const lang = getLangFromUrl(new URL(Astro.request.url));
+const t = useTranslations(lang);
+const currentPath = new URL(Astro.request.url).pathname;
+
+function switchLang(targetLang: Lang): string {
+  const segments = currentPath.split('/').filter(Boolean);
+  if (segments[0] in languages) segments[0] = targetLang;
+  else segments.unshift(targetLang);
+  return '/' + segments.join('/');
+}
+
+// matchSegment: '' = active on root/index, null = never active
+const navLinks = [
+  { key: 'nav.home' as const, href: `/${lang}/`, matchSegment: '' as string | null },
+  { key: 'nav.team' as const, href: getLocalePath(lang, '/team'), matchSegment: 'team' as string | null },
+  { key: 'nav.partners' as const, href: getLocalePath(lang, '/partners'), matchSegment: 'partners' as string | null },
+  { key: 'nav.contact' as const, href: getLocalePath(lang, '/contact'), matchSegment: 'contact' as string | null },
+];
+
+const currentSegment = currentPath.split('/').filter(Boolean)[1] ?? '';
+---
+
+<header class="bg-surface/80 backdrop-blur-md top-0 z-50 sticky border-b border-outline-variant/30 shadow-sm transition-all duration-300">
+  <div class="flex justify-between items-center w-full px-margin-mobile md:px-margin-desktop py-4 max-w-container-max mx-auto">
+    <!-- Logo -->
+    <a href={`/${lang}/`} class="font-headline-lg text-headline-lg font-bold tracking-tight text-primary">
+      BEYSCO
+    </a>
+
+    <!-- Desktop Nav -->
+    <nav class="hidden md:flex space-x-gutter items-center">
+      {navLinks.map((link) => {
+        const isActive = link.matchSegment !== null && currentSegment === link.matchSegment;
+        return (
+          <a
+            href={link.href}
+            class={isActive
+              ? 'font-button text-button text-secondary border-b-2 border-secondary pb-1 scale-95 transition-transform ease-out'
+              : 'font-button text-button text-on-surface-variant hover:text-primary transition-colors hover:bg-surface-container-low px-2 py-1 rounded'}
+          >
+            {t(link.key)}
+          </a>
+        );
+      })}
+    </nav>
+
+    <!-- Right side -->
+    <div class="flex items-center gap-4">
+      <!-- Language switcher -->
+      <div class="hidden md:flex items-center gap-1 rounded border border-outline-variant/50 bg-surface-container-low text-xs font-label-sm">
+        {Object.keys(languages).map((l) => (
+          <a
+            href={switchLang(l as Lang)}
+            class={`px-2.5 py-1.5 font-label-sm text-label-sm uppercase transition-colors ${lang === l ? 'bg-primary text-on-primary' : 'text-on-surface-variant hover:text-primary'}`}
+          >
+            {l}
+          </a>
+        ))}
+      </div>
+
+      <!-- CTA button -->
+      <div class="hidden md:block">
+        <button class="bg-primary hover:bg-primary/90 text-on-primary font-button text-button px-6 py-2 rounded shadow-sm transition-colors duration-200">
+          {t('nav.getStarted')}
+        </button>
+      </div>
+
+      <!-- Mobile hamburger -->
+      <button id="mobile-menu-btn" class="md:hidden text-primary" aria-label="Toggle menu">
+        <span class="material-symbols-outlined">menu</span>
+      </button>
+    </div>
+  </div>
+
+  <!-- Mobile menu -->
+  <div id="mobile-menu" class="hidden border-t border-outline-variant/30 bg-surface px-margin-mobile pb-4 pt-2 md:hidden">
+    <nav class="flex flex-col gap-2">
+      {navLinks.map((link) => (
+        <a href={link.href} class="py-2 font-button text-button text-on-surface-variant hover:text-primary transition-colors">
+          {t(link.key)}
+        </a>
+      ))}
+      <button class="mt-2 bg-primary hover:bg-primary/90 text-on-primary font-button text-button px-6 py-2 rounded shadow-sm transition-colors duration-200 text-left">
+        {t('nav.getStarted')}
+      </button>
+    </nav>
+  </div>
+</header>
+
+<script>
+  const btn = document.getElementById('mobile-menu-btn');
+  const menu = document.getElementById('mobile-menu');
+  btn?.addEventListener('click', () => menu?.classList.toggle('hidden'));
+</script>

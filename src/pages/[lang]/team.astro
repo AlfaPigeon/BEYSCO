@@ -1,0 +1,141 @@
+﻿---
+import Layout from '../../layouts/Layout.astro';
+import { useTranslations, type Lang } from '../../i18n';
+
+export const prerender = true;
+
+export function getStaticPaths() {
+  return [{ params: { lang: 'en' } }, { params: { lang: 'tr' } }];
+}
+
+const { lang } = Astro.params as { lang: Lang };
+const t = useTranslations(lang);
+---
+
+<Layout title={`BEYSCO - ${t('nav.team')}`} lang={lang}>
+  <!-- Hero Section -->
+  <header class="relative w-full pt-section-padding pb-[80px] px-margin-mobile md:px-margin-desktop bg-orbital overflow-hidden">
+    <div class="max-w-container-max mx-auto relative z-10 grid grid-cols-1 md:grid-cols-12 gap-gutter items-end">
+      <div class="md:col-span-8 flex flex-col gap-6">
+        <span class="font-label-sm text-label-sm uppercase tracking-widest text-secondary">Leadership &amp; Engineering</span>
+        <h1 class="font-headline-xl text-headline-xl text-primary max-w-3xl">{t('team.hero')}.</h1>
+        <p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mt-4">{t('team.heroSub')}</p>
+      </div>
+    </div>
+    <div class="absolute top-0 right-[-10%] w-[600px] h-[600px] rounded-full border-[0.5px] border-outline-variant/20 pointer-events-none"></div>
+    <div class="absolute top-10 right-[-5%] w-[500px] h-[500px] rounded-full border-[0.5px] border-outline-variant/10 pointer-events-none"></div>
+  </header>
+
+  <!-- Core Leadership -->
+  <section class="py-section-padding px-margin-mobile md:px-margin-desktop bg-surface-bright">
+    <div class="max-w-container-max mx-auto">
+      <div class="mb-16">
+        <h2 class="font-headline-lg text-headline-lg text-primary">{t('team.coreLeadership')}</h2>
+        <div class="w-12 h-1 bg-secondary mt-6"></div>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-12 gap-gutter auto-rows-[minmax(400px,auto)]">
+
+        <!-- Elena Rostova (Wide) -->
+        <article class="md:col-span-8 bg-surface-container-lowest rounded-xl ambient-shadow border border-outline-variant/30 overflow-hidden flex flex-col md:flex-row group cursor-pointer transition-transform duration-300 hover:-translate-y-1">
+          <div class="w-full md:w-2/5 relative min-h-[300px] md:min-h-full">
+            <img class="absolute inset-0 w-full h-full object-cover object-top grayscale-[20%] group-hover:grayscale-0 transition-all duration-500" src="/images/elena-rostova.jpg" alt="Elena Rostova" />
+            <div class="absolute inset-0 bg-gradient-to-t from-primary/80 via-transparent to-transparent opacity-60 md:opacity-0 group-hover:opacity-60 transition-opacity duration-300"></div>
+          </div>
+          <div class="p-8 md:p-10 w-full md:w-3/5 flex flex-col justify-center">
+            <div class="flex gap-2 mb-6 flex-wrap">
+              <span class="bg-secondary-fixed text-on-secondary-fixed font-label-sm text-label-sm px-3 py-1 rounded-sm uppercase tracking-wide">STRATEGY</span>
+              <span class="bg-secondary-fixed text-on-secondary-fixed font-label-sm text-label-sm px-3 py-1 rounded-sm uppercase tracking-wide">INTEGRATION</span>
+            </div>
+            <h3 class="font-headline-lg text-headline-lg text-primary mb-2">Elena Rostova</h3>
+            <p class="font-label-sm text-label-sm text-secondary mb-6 uppercase tracking-wider">{t('team.elena.title')}</p>
+            <p class="font-body-md text-body-md text-on-surface-variant mb-8 flex-grow">{t('team.elena.bio')}</p>
+       
+          </div>
+        </article>
+
+        <!-- Marcus Vance (Narrow) -->
+        <article class="md:col-span-4 bg-surface-container-lowest rounded-xl ambient-shadow border border-outline-variant/30 overflow-hidden flex flex-col group cursor-pointer transition-transform duration-300 hover:-translate-y-1">
+          <div class="w-full h-64 relative">
+            <img class="absolute inset-0 w-full h-full object-cover object-top grayscale-[20%] group-hover:grayscale-0 transition-all duration-500" src="/images/marcus-vance.jpg" alt="Marcus Vance" />
+          </div>
+          <div class="p-8 flex flex-col flex-grow">
+            <div class="mb-4">
+              <span class="bg-surface-variant text-on-surface-variant font-label-sm text-label-sm px-3 py-1 rounded-sm uppercase tracking-wide border border-outline/10">SYSTEM ARCHITECTURE</span>
+            </div>
+            <h3 class="font-headline-lg text-headline-lg text-primary mb-1 text-[24px] leading-[32px]">Marcus Vance</h3>
+            <p class="font-label-sm text-label-sm text-secondary mb-4 uppercase tracking-wider">{t('team.marcus.title')}</p>
+            <p class="font-body-md text-body-md text-on-surface-variant mb-6 text-sm flex-grow">{t('team.marcus.bio')}</p>
+  
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Engineering & AI Specialists -->
+  <section class="py-section-padding px-margin-mobile md:px-margin-desktop bg-surface relative">
+    <div class="max-w-container-max mx-auto relative z-10">
+      <div class="mb-16 flex flex-col md:flex-row md:items-end justify-between gap-8">
+        <div>
+          <h2 class="font-headline-lg text-headline-lg text-primary">{t('team.specialists')}</h2>
+          <div class="w-12 h-1 bg-secondary mt-6"></div>
+        </div>
+        <p class="font-body-md text-body-md text-on-surface-variant max-w-md">{t('team.specialistsSub')}</p>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-gutter">
+
+        <!-- Sarah Jenkins -->
+        <div class="group">
+          <div class="w-full aspect-[4/5] bg-surface-container-low rounded-lg mb-6 overflow-hidden relative">
+            <img class="w-full h-full object-cover grayscale-[30%] group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700 ease-out" src="/images/sarah-jenkins-photo.jpg" alt="Sarah Jenkins" />
+            <div class="absolute bottom-4 left-4 flex gap-2">
+              <span class="bg-surface/90 text-primary font-label-sm text-[10px] px-2 py-1 rounded-sm uppercase shadow-sm">CLOUDOPS</span>
+            </div>
+          </div>
+          <h4 class="font-headline-lg-mobile text-headline-lg-mobile text-primary mb-1 group-hover:text-secondary transition-colors">Sarah Jenkins</h4>
+          <p class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">{t('team.sarah.title')}</p>
+        </div>
+
+        <!-- Dr. Aris Thorne -->
+        <div class="group">
+          <div class="w-full aspect-[4/5] bg-surface-container-low rounded-lg mb-6 overflow-hidden relative">
+            <img class="w-full h-full object-cover grayscale-[30%] group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700 ease-out" src="/images/sarah-jenkins.jpg" alt="Dr. Aris Thorne" />
+            <div class="absolute bottom-4 left-4 flex gap-2">
+              <span class="bg-surface/90 text-primary font-label-sm text-[10px] px-2 py-1 rounded-sm uppercase shadow-sm">NEURAL NETS</span>
+              <span class="bg-surface/90 text-primary font-label-sm text-[10px] px-2 py-1 rounded-sm uppercase shadow-sm">AI</span>
+            </div>
+          </div>
+          <h4 class="font-headline-lg-mobile text-headline-lg-mobile text-primary mb-1 group-hover:text-secondary transition-colors">Dr. Aris Thorne</h4>
+          <p class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">{t('team.aris.title')}</p>
+        </div>
+
+        <!-- Chloe Zhang -->
+        <div class="group">
+          <div class="w-full aspect-[4/5] bg-surface-container-low rounded-lg mb-6 overflow-hidden relative">
+            <img class="w-full h-full object-cover grayscale-[30%] group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700 ease-out" src="/images/dr-aris-thorne.jpg" alt="Chloe Zhang" />
+            <div class="absolute bottom-4 left-4 flex gap-2">
+              <span class="bg-surface/90 text-primary font-label-sm text-[10px] px-2 py-1 rounded-sm uppercase shadow-sm">DATA PIPELINES</span>
+            </div>
+          </div>
+          <h4 class="font-headline-lg-mobile text-headline-lg-mobile text-primary mb-1 group-hover:text-secondary transition-colors">Chloe Zhang</h4>
+          <p class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">{t('team.chloe.title')}</p>
+        </div>
+
+        <!-- David Miller -->
+        <div class="group">
+          <div class="w-full aspect-[4/5] bg-surface-container-low rounded-lg mb-6 overflow-hidden relative">
+            <img class="w-full h-full object-cover grayscale-[30%] group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700 ease-out" src="/images/chloe-zhang.jpg" alt="David Miller" />
+            <div class="absolute bottom-4 left-4 flex gap-2">
+              <span class="bg-surface/90 text-primary font-label-sm text-[10px] px-2 py-1 rounded-sm uppercase shadow-sm">SEC-OPS</span>
+            </div>
+          </div>
+          <h4 class="font-headline-lg-mobile text-headline-lg-mobile text-primary mb-1 group-hover:text-secondary transition-colors">David Miller</h4>
+          <p class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">{t('team.david.title')}</p>
+        </div>
+
+      </div>
+    </div>
+    <div class="absolute top-1/2 left-0 w-full h-[1px] bg-outline-variant/20 z-0"></div>
+  </section>
+</Layout>

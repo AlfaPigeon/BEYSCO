@@ -1,0 +1,223 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { useTranslations, getLocalePath, type Lang } from '../../i18n';
+
+export const prerender = true;
+
+export function getStaticPaths() {
+  return [{ params: { lang: 'en' } }, { params: { lang: 'tr' } }];
+}
+
+const { lang } = Astro.params as { lang: Lang };
+const t = useTranslations(lang);
+
+const isEN = lang === 'en';
+---
+
+<Layout title={`${t('footer.privacyTitle')} — BEYSCO`} lang={lang}>
+  <div class="relative overflow-hidden">
+    <div class="absolute inset-0 orbital-bg opacity-20 pointer-events-none z-0"></div>
+
+    <!-- Hero -->
+    <header class="relative z-10 pt-section-padding pb-[80px] px-margin-mobile md:px-margin-desktop">
+      <div class="max-w-container-max mx-auto">
+        <a href={getLocalePath(lang, '/')} class="inline-flex items-center gap-1 font-label-sm text-label-sm text-secondary uppercase tracking-widest mb-8 hover:text-primary transition-colors">
+          <span class="material-symbols-outlined" style="font-size:16px">arrow_back</span>
+          {isEN ? 'Back' : 'Geri'}
+        </a>
+        <span class="block font-label-sm text-label-sm uppercase tracking-widest text-secondary mb-4">{isEN ? 'Legal' : 'Yasal'}</span>
+        <h1 class="font-headline-xl text-headline-xl text-primary max-w-3xl">{t('footer.privacyTitle')}</h1>
+        <p class="font-body-md text-body-md text-on-surface-variant mt-4">
+          {isEN ? 'Last updated: January 1, 2026' : 'Son güncelleme: 1 Ocak 2026'}
+        </p>
+      </div>
+    </header>
+
+    <!-- Content -->
+    <div class="relative z-10 pb-section-padding px-margin-mobile md:px-margin-desktop">
+      <div class="max-w-container-max mx-auto grid grid-cols-1 lg:grid-cols-12 gap-gutter">
+
+        <!-- TOC sidebar -->
+        <aside class="lg:col-span-3 hidden lg:block">
+          <div class="sticky top-24 bg-surface-container-lowest rounded-lg border border-outline-variant/30 ambient-shadow p-6">
+            <h3 class="font-label-sm text-label-sm uppercase tracking-widest text-on-surface-variant mb-4">
+              {isEN ? 'Contents' : 'İçindekiler'}
+            </h3>
+            <nav class="space-y-2">
+              {(isEN ? [
+                ['#data', 'Data We Collect'],
+                ['#use', 'How We Use Data'],
+                ['#sharing', 'Data Sharing'],
+                ['#security', 'Security'],
+                ['#rights', 'Your Rights'],
+                ['#cookies', 'Cookies'],
+                ['#contact-us', 'Contact Us'],
+              ] : [
+                ['#data', 'Topladığımız Veriler'],
+                ['#use', 'Verileri Nasıl Kullanırız'],
+                ['#sharing', 'Veri Paylaşımı'],
+                ['#security', 'Güvenlik'],
+                ['#rights', 'Haklarınız'],
+                ['#cookies', 'Çerezler'],
+                ['#contact-us', 'İletişim'],
+              ]).map(([href, label]) => (
+                <a href={href} class="block font-label-sm text-label-sm text-on-surface-variant hover:text-secondary transition-colors py-1">
+                  {label}
+                </a>
+              ))}
+            </nav>
+          </div>
+        </aside>
+
+        <!-- Body -->
+        <article class="lg:col-span-9 bg-surface-container-lowest rounded-lg border border-outline-variant/30 ambient-shadow p-8 md:p-12 space-y-12 font-body-md text-body-md text-on-surface-variant leading-relaxed">
+
+          {isEN ? (
+            <>
+              <section id="data">
+                <h2 class="font-headline-lg text-headline-lg text-primary mb-4">1. Data We Collect</h2>
+                <p>BEYSCO Technology Integrator ("BEYSCO", "we", "us") collects information you provide when you use our services, submit technical inquiries, or interact with our infrastructure platforms. This includes:</p>
+                <ul class="list-disc pl-6 mt-4 space-y-2">
+                  <li>Identity data: full name, job title, company name</li>
+                  <li>Contact data: work email address, phone number</li>
+                  <li>Technical data: IP address, browser type, operating system, usage logs</li>
+                  <li>Communication data: messages, project specifications, and correspondence</li>
+                </ul>
+              </section>
+
+              <section id="use">
+                <h2 class="font-headline-lg text-headline-lg text-primary mb-4">2. How We Use Data</h2>
+                <p>We use collected data strictly to provide and improve our services:</p>
+                <ul class="list-disc pl-6 mt-4 space-y-2">
+                  <li>To respond to technical inquiries and route requests to the appropriate engineering division</li>
+                  <li>To deliver contracted integration, infrastructure, and consulting services</li>
+                  <li>To send service updates, security notices, and administrative messages</li>
+                  <li>To comply with legal obligations and regulatory requirements</li>
+                  <li>To analyze usage patterns and improve platform performance</li>
+                </ul>
+                <p class="mt-4">We do not sell or rent your personal data to third parties.</p>
+              </section>
+
+              <section id="sharing">
+                <h2 class="font-headline-lg text-headline-lg text-primary mb-4">3. Data Sharing</h2>
+                <p>BEYSCO may share data with trusted partners solely to deliver our services:</p>
+                <ul class="list-disc pl-6 mt-4 space-y-2">
+                  <li><strong class="text-on-surface">Service providers</strong> — cloud infrastructure vendors, analytics providers, and CRM platforms operating under strict data processing agreements</li>
+                  <li><strong class="text-on-surface">Technology partners</strong> — including Parloa and other integration partners, only to the extent required for the contracted service</li>
+                  <li><strong class="text-on-surface">Legal authorities</strong> — when required by applicable law, court order, or regulatory mandate</li>
+                </ul>
+              </section>
+
+              <section id="security">
+                <h2 class="font-headline-lg text-headline-lg text-primary mb-4">4. Security</h2>
+                <p>We implement enterprise-grade security measures including zero-trust architecture, end-to-end encryption in transit and at rest, role-based access controls, and continuous monitoring. All personnel handling personal data are bound by confidentiality obligations.</p>
+                <p class="mt-4">Despite these measures, no data transmission over the Internet can be guaranteed to be 100% secure. You assume responsibility for maintaining the security of any credentials you use to access our platforms.</p>
+              </section>
+
+              <section id="rights">
+                <h2 class="font-headline-lg text-headline-lg text-primary mb-4">5. Your Rights</h2>
+                <p>Depending on your jurisdiction, you may have the following rights regarding your personal data:</p>
+                <ul class="list-disc pl-6 mt-4 space-y-2">
+                  <li>Right of access — obtain a copy of data we hold about you</li>
+                  <li>Right to rectification — correct inaccurate or incomplete data</li>
+                  <li>Right to erasure — request deletion of your data</li>
+                  <li>Right to restriction — limit how we process your data</li>
+                  <li>Right to portability — receive your data in a structured format</li>
+                  <li>Right to object — object to processing based on legitimate interests</li>
+                </ul>
+                <p class="mt-4">To exercise any of these rights, contact us at <a href="mailto:privacy@beysco.com" class="text-secondary hover:underline">privacy@beysco.com</a>.</p>
+              </section>
+
+              <section id="cookies">
+                <h2 class="font-headline-lg text-headline-lg text-primary mb-4">6. Cookies</h2>
+                <p>We use essential cookies required for site functionality and optional analytics cookies to understand how visitors interact with our platform. You may disable non-essential cookies through your browser settings. Disabling cookies may affect some features of our services.</p>
+              </section>
+
+              <section id="contact-us">
+                <h2 class="font-headline-lg text-headline-lg text-primary mb-4">7. Contact Us</h2>
+                <p>For privacy-related enquiries, contact our Data Protection Officer:</p>
+                <div class="mt-4 p-6 bg-surface-container-low rounded border border-outline-variant/30">
+                  <p class="font-medium text-on-surface">BEYSCO Technology Integrator — Data Protection</p>
+                  <p class="mt-1">Email: <a href="mailto:privacy@beysco.com" class="text-secondary hover:underline">privacy@beysco.com</a></p>
+                  <p class="mt-1">Address: Büyükdere Plaza No:195, Şişli / İstanbul</p>
+                </div>
+              </section>
+            </>
+          ) : (
+            <>
+              <section id="data">
+                <h2 class="font-headline-lg text-headline-lg text-primary mb-4">1. Topladığımız Veriler</h2>
+                <p>BEYSCO Technology Integrator ("BEYSCO", "biz"), hizmetlerimizi kullandığınızda, teknik sorgu gönderdiğinizde veya altyapı platformlarımızla etkileşime geçtiğinizde sağladığınız bilgileri toplar. Bu bilgiler şunları içerir:</p>
+                <ul class="list-disc pl-6 mt-4 space-y-2">
+                  <li>Kimlik verileri: ad soyad, iş unvanı, şirket adı</li>
+                  <li>İletişim verileri: iş e-postası, telefon numarası</li>
+                  <li>Teknik veriler: IP adresi, tarayıcı türü, işletim sistemi, kullanım günlükleri</li>
+                  <li>İletişim verileri: mesajlar, proje özellikleri ve yazışmalar</li>
+                </ul>
+              </section>
+
+              <section id="use">
+                <h2 class="font-headline-lg text-headline-lg text-primary mb-4">2. Verileri Nasıl Kullanırız</h2>
+                <p>Toplanan verileri yalnızca hizmetlerimizi sunmak ve geliştirmek amacıyla kullanırız:</p>
+                <ul class="list-disc pl-6 mt-4 space-y-2">
+                  <li>Teknik sorgulamalara yanıt vermek ve talepleri uygun mühendislik birimine yönlendirmek</li>
+                  <li>Sözleşmeli entegrasyon, altyapı ve danışmanlık hizmetlerini sunmak</li>
+                  <li>Hizmet güncellemeleri, güvenlik bildirimleri ve idari mesajlar göndermek</li>
+                  <li>Yasal yükümlülükleri ve düzenleyici gereklilikleri yerine getirmek</li>
+                  <li>Kullanım kalıplarını analiz etmek ve platform performansını iyileştirmek</li>
+                </ul>
+                <p class="mt-4">Kişisel verilerinizi üçüncü taraflara satmıyor veya kiraya vermiyoruz.</p>
+              </section>
+
+              <section id="sharing">
+                <h2 class="font-headline-lg text-headline-lg text-primary mb-4">3. Veri Paylaşımı</h2>
+                <p>BEYSCO, yalnızca hizmetlerimizi sunmak amacıyla güvenilir iş ortaklarıyla veri paylaşabilir:</p>
+                <ul class="list-disc pl-6 mt-4 space-y-2">
+                  <li><strong class="text-on-surface">Hizmet sağlayıcılar</strong> — sıkı veri işleme sözleşmeleri kapsamında faaliyet gösteren bulut altyapısı tedarikçileri, analitik sağlayıcıları ve CRM platformları</li>
+                  <li><strong class="text-on-surface">Teknoloji ortakları</strong> — Parloa ve diğer entegrasyon ortakları dahil, yalnızca sözleşmeli hizmet için gerekli olduğu ölçüde</li>
+                  <li><strong class="text-on-surface">Yasal makamlar</strong> — yürürlükteki mevzuat, mahkeme kararı veya düzenleyici zorunluluk gerektirdiğinde</li>
+                </ul>
+              </section>
+
+              <section id="security">
+                <h2 class="font-headline-lg text-headline-lg text-primary mb-4">4. Güvenlik</h2>
+                <p>Sıfır güven mimarisi, aktarım sırasında ve beklemede uçtan uca şifreleme, rol tabanlı erişim kontrolleri ve sürekli izleme dahil kurumsal düzeyde güvenlik önlemleri uyguluyoruz. Kişisel veri işleyen tüm personel gizlilik yükümlülükleriyle bağlıdır.</p>
+                <p class="mt-4">Bu önlemlere karşın, İnternet üzerinden yapılan hiçbir veri iletiminin %100 güvenli olduğu garanti edilemez. Platformlarımıza erişmek için kullandığınız kimlik bilgilerinin güvenliğinin sağlanması sizin sorumluluğunuzdadır.</p>
+              </section>
+
+              <section id="rights">
+                <h2 class="font-headline-lg text-headline-lg text-primary mb-4">5. Haklarınız</h2>
+                <p>Yargı bölgenize bağlı olarak kişisel verilerinizle ilgili aşağıdaki haklara sahip olabilirsiniz:</p>
+                <ul class="list-disc pl-6 mt-4 space-y-2">
+                  <li>Erişim hakkı — hakkınızda tuttuğumuz verilerin bir kopyasını alma</li>
+                  <li>Düzeltme hakkı — yanlış veya eksik verileri düzeltme</li>
+                  <li>Silme hakkı — verilerinizin silinmesini talep etme</li>
+                  <li>Kısıtlama hakkı — verilerinizi nasıl işlediğimizi sınırlama</li>
+                  <li>Taşınabilirlik hakkı — verilerinizi yapılandırılmış bir biçimde alma</li>
+                  <li>İtiraz hakkı — meşru menfaatlere dayalı işlemeye itiraz etme</li>
+                </ul>
+                <p class="mt-4">Bu haklardan herhangi birini kullanmak için <a href="mailto:privacy@beysco.com" class="text-secondary hover:underline">privacy@beysco.com</a> adresine yazın.</p>
+              </section>
+
+              <section id="cookies">
+                <h2 class="font-headline-lg text-headline-lg text-primary mb-4">6. Çerezler</h2>
+                <p>Site işlevselliği için zorunlu çerezler ve ziyaretçilerin platformumuzla nasıl etkileşime geçtiğini anlamak için isteğe bağlı analitik çerezler kullanıyoruz. Zorunlu olmayan çerezleri tarayıcı ayarlarınızdan devre dışı bırakabilirsiniz. Çerezleri devre dışı bırakmak bazı hizmet özelliklerini etkileyebilir.</p>
+              </section>
+
+              <section id="contact-us">
+                <h2 class="font-headline-lg text-headline-lg text-primary mb-4">7. İletişim</h2>
+                <p>Gizlilikle ilgili sorularınız için Veri Koruma Görevlimizle iletişime geçin:</p>
+                <div class="mt-4 p-6 bg-surface-container-low rounded border border-outline-variant/30">
+                  <p class="font-medium text-on-surface">BEYSCO Technology Integrator — Veri Koruma</p>
+                  <p class="mt-1">E-posta: <a href="mailto:privacy@beysco.com" class="text-secondary hover:underline">privacy@beysco.com</a></p>
+                  <p class="mt-1">Adres: Büyükdere Plaza No:195, Şişli / İstanbul</p>
+                </div>
+              </section>
+            </>
+          )}
+
+        </article>
+      </div>
+    </div>
+  </div>
+</Layout>
