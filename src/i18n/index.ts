@@ -4,7 +4,10 @@ export { languages, defaultLang } from './ui';
 export type { Lang };
 
 export function getLangFromUrl(url: URL): Lang {
-  const [, lang] = url.pathname.split('/');
+  // Strip the base path before inspecting segments
+  const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+  const pathname = url.pathname.startsWith(base) ? url.pathname.slice(base.length) : url.pathname;
+  const [, lang] = pathname.split('/');
   if (lang in ui) return lang as Lang;
   return defaultLang;
 }
@@ -16,5 +19,5 @@ export function useTranslations(lang: Lang) {
 }
 
 export function getLocalePath(lang: Lang, path: string): string {
-  return `/${lang}${path}`;
+  return import.meta.env.BASE_URL + lang + path;
 }

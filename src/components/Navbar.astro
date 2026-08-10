@@ -6,27 +6,32 @@ const t = useTranslations(lang);
 const currentPath = new URL(Astro.request.url).pathname;
 
 function switchLang(targetLang: Lang): string {
-  const segments = currentPath.split('/').filter(Boolean);
+  const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+  const pathWithoutBase = currentPath.startsWith(base) ? currentPath.slice(base.length) : currentPath;
+  const segments = pathWithoutBase.split('/').filter(Boolean);
   if (segments[0] in languages) segments[0] = targetLang;
   else segments.unshift(targetLang);
-  return '/' + segments.join('/');
+  return import.meta.env.BASE_URL + segments.join('/');
 }
 
 // matchSegment: '' = active on root/index, null = never active
 const navLinks = [
-  { key: 'nav.home' as const, href: `/${lang}/`, matchSegment: '' as string | null },
+  { key: 'nav.home' as const, href: import.meta.env.BASE_URL + lang + '/', matchSegment: '' as string | null },
   { key: 'nav.team' as const, href: getLocalePath(lang, '/team'), matchSegment: 'team' as string | null },
   { key: 'nav.partners' as const, href: getLocalePath(lang, '/partners'), matchSegment: 'partners' as string | null },
   { key: 'nav.contact' as const, href: getLocalePath(lang, '/contact'), matchSegment: 'contact' as string | null },
 ];
 
-const currentSegment = currentPath.split('/').filter(Boolean)[1] ?? '';
+// After stripping the base, segment[0]=lang, segment[1]=page
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+const _pathNB = currentPath.startsWith(base) ? currentPath.slice(base.length) : currentPath;
+const currentSegment = _pathNB.split('/').filter(Boolean)[1] ?? '';
 ---
 
 <header class="bg-surface/80 backdrop-blur-md top-0 z-50 sticky border-b border-outline-variant/30 shadow-sm transition-all duration-300">
   <div class="flex justify-between items-center w-full px-margin-mobile md:px-margin-desktop py-4 max-w-container-max mx-auto">
     <!-- Logo -->
-    <a href={`/${lang}/`} class="font-headline-lg text-headline-lg font-bold tracking-tight text-primary">
+    <a href={import.meta.env.BASE_URL + lang + '/'} class="font-headline-lg text-headline-lg font-bold tracking-tight text-primary">
       BEYSCO
     </a>
 

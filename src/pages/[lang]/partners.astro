@@ -1,6 +1,7 @@
 ﻿---
 import Layout from '../../layouts/Layout.astro';
 import { useTranslations, type Lang } from '../../i18n';
+import { asset } from '../../utils';
 
 export const prerender = true;
 
@@ -92,7 +93,7 @@ const t = useTranslations(lang);
               </a>
             </div>
             <div class="h-64 md:h-auto bg-surface-variant relative">
-              <div class="absolute inset-0 bg-cover bg-center w-full h-full mix-blend-multiply opacity-50" style="background-image: url('/images/case-study-telecom.jpg')"></div>
+              <div class="absolute inset-0 bg-cover bg-center w-full h-full mix-blend-multiply opacity-50" style={`background-image: url(${asset('/images/case-study-telecom.jpg')})`}></div>
             </div>
           </div>
         </div>
@@ -101,3 +102,4 @@ const t = useTranslations(lang);
     </div>
   </section>
 </Layout>
+
