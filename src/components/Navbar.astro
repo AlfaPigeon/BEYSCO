@@ -67,9 +67,9 @@ const navLinks = [
 
       <!-- CTA button -->
       <div class="hidden md:block">
-        <button class="bg-primary hover:bg-primary/90 text-on-primary font-button text-button px-6 py-2 rounded shadow-sm transition-colors duration-200">
+        <a href={getLocalePath(lang, '/contact')} class="bg-primary hover:bg-primary/90 text-on-primary font-button text-button px-6 py-2 rounded shadow-sm transition-colors duration-200 inline-block">
           {t('nav.getStarted')}
-        </button>
+        </a>
       </div>
 
       <!-- Mobile hamburger -->
@@ -87,9 +87,9 @@ const navLinks = [
           {t(link.key)}
         </a>
       ))}
-      <button class="mt-2 bg-primary hover:bg-primary/90 text-on-primary font-button text-button px-6 py-2 rounded shadow-sm transition-colors duration-200 text-left">
+      <a href={getLocalePath(lang, '/contact')} class="mt-2 bg-primary hover:bg-primary/90 text-on-primary font-button text-button px-6 py-2 rounded shadow-sm transition-colors duration-200 block text-center">
         {t('nav.getStarted')}
-      </button>
+      </a>
     </nav>
   </div>
 </header>

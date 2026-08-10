@@ -1,6 +1,6 @@
 ﻿---
 import Layout from '../../layouts/Layout.astro';
-import { useTranslations, type Lang } from '../../i18n';
+import { useTranslations, getLocalePath, type Lang } from '../../i18n';
 import { asset } from '../../utils';
 
 export const prerender = true;
@@ -25,12 +25,10 @@ const t = useTranslations(lang);
       <p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mx-auto mb-10">
         {t('services.heroSub')}
       </p>
-      <button class="bg-primary hover:bg-primary/90 text-on-primary font-button text-button px-8 py-4 rounded shadow-sm transition-colors duration-200 flex items-center justify-center mx-auto space-x-2">
-        <a href={`/${lang}/contact`} class="flex items-center justify-center space-x-2">
+      <a href={getLocalePath(lang, '/contact')} class="bg-primary hover:bg-primary/90 text-on-primary font-button text-button px-8 py-4 rounded shadow-sm transition-colors duration-200 inline-flex items-center justify-center space-x-2">
         <span>{t('services.cta')}</span>
         <span class="material-symbols-outlined text-sm">arrow_forward</span>
-        </a>
-      </button>
+      </a>
     </div>
   </section>
 
