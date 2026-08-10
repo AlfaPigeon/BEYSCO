@@ -142,6 +142,9 @@ export const ui = {
     'contact.privacyText': 'By submitting this form, you agree to our',
     'contact.privacyLink': 'Privacy Policy',
     'contact.privacySuffix': 'regarding data processing.',
+    // meta descriptions
+    'meta.privacyDesc': 'Read the BEYSCO Privacy Policy to understand how we collect, use, and protect your personal information.',
+    'meta.termsDesc': 'Review the Terms of Service governing use of BEYSCO\'s technology integration services and website.',
   },
   tr: {
     // nav
@@ -278,6 +281,9 @@ export const ui = {
     'contact.privacyText': 'Bu formu göndererek',
     'contact.privacyLink': 'Gizlilik Politikamızı',
     'contact.privacySuffix': 'veri işleme konusunda kabul etmiş olursunuz.',
+    // meta descriptions
+    'meta.privacyDesc': 'BEYSCO Gizlilik Politikası\'nı okuyarak kişisel verilerinizin nasıl toplandığını, kullanıldığını ve korunduğunu öğrenin.',
+    'meta.termsDesc': 'BEYSCO teknoloji entegrasyon hizmetleri ve web sitesinin kullanımını düzenleyen Kullanım Koşulları\'nı inceleyin.',
   },
 } as const;
 

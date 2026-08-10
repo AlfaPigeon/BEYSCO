@@ -12,7 +12,7 @@ const { lang } = Astro.params as { lang: Lang };
 const t = useTranslations(lang);
 ---
 
-<Layout title="Contact BEYSCO" lang={lang}>
+<Layout title="Contact BEYSCO" description={t('contact.heroSub')} lang={lang}>
   <!-- Full-page orbital pattern -->
   <div class="fixed inset-0 pointer-events-none orbital-bg-contact z-0"></div>
 

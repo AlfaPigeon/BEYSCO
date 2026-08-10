@@ -21,8 +21,8 @@ const currentSegment = _pathNB.split('/').filter(Boolean)[1] ?? '';
 
 const navLinks = [
   { key: 'nav.home' as const, href: base + '/' + lang + '/', matchSegment: '' as string | null },
-  { key: 'nav.team' as const, href: getLocalePath(lang, '/team'), matchSegment: 'team' as string | null },
-  { key: 'nav.partners' as const, href: getLocalePath(lang, '/partners'), matchSegment: 'partners' as string | null },
+  //{ key: 'nav.team' as const, href: getLocalePath(lang, '/team'), matchSegment: 'team' as string | null },
+  //{ key: 'nav.partners' as const, href: getLocalePath(lang, '/partners'), matchSegment: 'partners' as string | null },
   { key: 'nav.contact' as const, href: getLocalePath(lang, '/contact'), matchSegment: 'contact' as string | null },
 ];
 ---

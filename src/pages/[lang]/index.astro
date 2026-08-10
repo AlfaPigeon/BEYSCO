@@ -13,7 +13,7 @@ const { lang } = Astro.params as { lang: Lang };
 const t = useTranslations(lang);
 ---
 
-<Layout title={`BEYSCO Technology Integrator`} lang={lang}>
+<Layout title={`BEYSCO Technology Integrator`} description={t('services.heroSub')} lang={lang}>
   <!-- Hero Section -->
   <section class="relative pt-section-padding pb-section-padding px-margin-mobile md:px-margin-desktop overflow-hidden">
     <div class="absolute inset-0 orbital-bg opacity-30 pointer-events-none z-0"></div>
