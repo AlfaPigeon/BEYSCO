@@ -1,5 +1,4 @@
-/** Prepends BASE_URL to public-folder asset paths. */
+/** Returns a root-relative public-folder asset path. */
 export function asset(path: string): string {
-  const base = import.meta.env.BASE_URL.replace(/\/$/, '');
-  return `${base}/${path.replace(/^\//, '')}`;
+  return `/${path.replace(/^\//, '')}`;
 }
