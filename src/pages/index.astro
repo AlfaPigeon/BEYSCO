@@ -10,6 +10,21 @@ const t = useTranslations(lang);
 ---
 
 <Layout title={`BEYSCO Technology Integrator`} description={t('services.heroSub')} lang={lang}>
+  <script is:inline>
+    (() => {
+      const hasLanguageCookie = document.cookie
+        .split(';')
+        .map((c) => c.trim())
+        .some((c) => c.startsWith('beysco_lang=') || c.startsWith('lang=') || c.startsWith('locale=') || c.startsWith('language='));
+
+      const browserIsTurkish = (navigator.language || '').toLowerCase().startsWith('tr');
+
+      if (!hasLanguageCookie && browserIsTurkish && window.location.pathname === '/') {
+        window.location.replace('/tr/');
+      }
+    })();
+  </script>
+
   <!-- Hero Section -->
   <section class="relative pt-section-padding pb-section-padding px-margin-mobile md:px-margin-desktop overflow-hidden">
     <div class="absolute inset-0 orbital-bg opacity-30 pointer-events-none z-0"></div>

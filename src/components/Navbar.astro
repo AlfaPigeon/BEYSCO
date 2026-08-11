@@ -54,6 +54,7 @@ const navLinks = [
         {Object.keys(languages).map((l) => (
           <a
             href={switchLang(l as Lang)}
+            data-lang={l}
             class={`px-2.5 py-1.5 font-label-sm text-label-sm uppercase transition-colors ${lang === l ? 'bg-primary text-on-primary' : 'text-on-surface-variant hover:text-primary'}`}
           >
             {l}
@@ -94,4 +95,12 @@ const navLinks = [
   const btn = document.getElementById('mobile-menu-btn');
   const menu = document.getElementById('mobile-menu');
   btn?.addEventListener('click', () => menu?.classList.toggle('hidden'));
+
+  document.querySelectorAll('[data-lang]').forEach((link) => {
+    link.addEventListener('click', () => {
+      const lang = link.getAttribute('data-lang');
+      if (!lang) return;
+      document.cookie = `beysco_lang=${lang}; path=/; max-age=31536000; SameSite=Lax`;
+    });
+  });
 </script>
