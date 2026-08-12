@@ -62,7 +62,7 @@ export const ui = {
     'services.coreComp': 'Core Competencies',
     'services.aiTitle': 'Conversational AI & LLMs',
     'services.aiDesc':
-      'Customizing and deploying enterprise-grade conversational AI. We integrate cutting-edge language models seamlessly into your existing architecture, leveraging platforms like Parloa for unparalleled customer interaction.',
+      'Customizing and deploying enterprise-grade conversational AI. We integrate cutting-edge language models seamlessly into your existing architecture.',
     'services.cloudTitle': 'Cloud Infrastructure',
     'services.cloudDesc':
       'Designing scalable, resilient, and highly available cloud systems tailored to specific workload demands.',
@@ -201,7 +201,7 @@ export const ui = {
     'services.coreComp': 'Temel Yetkinlikler',
     'services.aiTitle': 'Konuşma Yapay Zekası ve Büyük Dil Modelleri',
     'services.aiDesc':
-      "Kurumsal düzeyde konuşma yapay zekasını özelleştirip konuşlandırıyoruz. Parloa gibi platformlardan yararlanarak en son dil modellerini mevcut mimarinize sorunsuz biçimde entegre ediyoruz.",
+      "Kurumsal düzeyde konuşma yapay zekasını özelleştirip konuşlandırıyoruz.",
     'services.cloudTitle': 'Bulut Altyapısı',
     'services.cloudDesc':
       'Belirli iş yükü taleplerine uygun ölçeklenebilir, dayanıklı ve yüksek kullanılabilirlikli bulut sistemleri tasarlıyoruz.',
