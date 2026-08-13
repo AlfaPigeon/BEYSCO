@@ -50,6 +50,9 @@ const t = useTranslations(lang);
             <h3 class="font-headline-lg text-headline-lg text-primary mb-4">{t('services.aiTitle')}</h3>
             <p class="text-on-surface-variant max-w-xl mb-6">{t('services.aiDesc')}</p>
           </div>
+          <a class="relative z-10 text-secondary font-label-sm text-label-sm uppercase flex items-center gap-1 hover:text-primary transition-colors" href={getLocalePath(lang, '/services/ai-intelligent-systems')}>
+            {t('services.exploreService')} <span class="material-symbols-outlined text-sm">arrow_right_alt</span>
+          </a>
         </div>
 
         <!-- Cloud & Backend Engineering (Small) -->
@@ -60,6 +63,9 @@ const t = useTranslations(lang);
             <h3 class="font-headline-lg-mobile text-headline-lg-mobile text-primary mb-4">{t('services.cloudTitle')}</h3>
             <p class="text-on-surface-variant text-sm">{t('services.cloudDesc')}</p>
           </div>
+          <a class="mt-6 text-secondary font-label-sm text-label-sm uppercase flex items-center gap-1 hover:text-primary transition-colors" href={getLocalePath(lang, '/services/cloud-backend-engineering')}>
+            {t('services.exploreService')} <span class="material-symbols-outlined text-sm">arrow_right_alt</span>
+          </a>
         </div>
 
         <!-- Custom Software (Small) -->
@@ -70,6 +76,9 @@ const t = useTranslations(lang);
             <h3 class="font-headline-lg-mobile text-headline-lg-mobile text-primary mb-4">{t('services.secTitle')}</h3>
             <p class="text-on-surface-variant text-sm">{t('services.secDesc')}</p>
           </div>
+          <a class="mt-6 text-secondary font-label-sm text-label-sm uppercase flex items-center gap-1 hover:text-primary transition-colors" href={getLocalePath(lang, '/services/custom-software')}>
+            {t('services.exploreService')} <span class="material-symbols-outlined text-sm">arrow_right_alt</span>
+          </a>
         </div>
 
         <!-- Strategic Consulting (Large) -->
@@ -78,6 +87,9 @@ const t = useTranslations(lang);
             <div class="inline-block bg-inverse-primary text-on-primary-fixed-variant font-label-sm text-label-sm px-2 py-1 mb-6 uppercase rounded-sm">Strategy</div>
             <h3 class="font-headline-lg text-headline-lg text-primary mb-4">{t('services.stratTitle')}</h3>
             <p class="text-on-surface-variant mb-6">{t('services.stratDesc')}</p>
+            <a class="text-secondary font-label-sm text-label-sm uppercase flex items-center gap-1 hover:text-primary transition-colors" href={getLocalePath(lang, '/services/strategic-consulting')}>
+              {t('services.exploreService')} <span class="material-symbols-outlined text-sm">arrow_right_alt</span>
+            </a>
           </div>
           <div class="w-full md:w-1/3 aspect-square rounded-sm overflow-hidden border border-outline-variant/50">
             <img
@@ -94,7 +106,10 @@ const t = useTranslations(lang);
             <div class="inline-block bg-inverse-primary text-on-primary-fixed-variant font-label-sm text-label-sm px-2 py-1 mb-6 uppercase rounded-sm">Interactive</div>
             <span class="material-symbols-outlined text-4xl text-primary mb-4 block">view_in_ar</span>
             <h3 class="font-headline-lg text-headline-lg text-primary mb-4">{t('services.interactiveTitle')}</h3>
-            <p class="text-on-surface-variant">{t('services.interactiveDesc')}</p>
+            <p class="text-on-surface-variant mb-6">{t('services.interactiveDesc')}</p>
+            <a class="text-secondary font-label-sm text-label-sm uppercase flex items-center gap-1 hover:text-primary transition-colors" href={getLocalePath(lang, '/services/interactive-simulation')}>
+              {t('services.exploreService')} <span class="material-symbols-outlined text-sm">arrow_right_alt</span>
+            </a>
           </div>
         </div>
 

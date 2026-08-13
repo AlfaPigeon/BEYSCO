@@ -64,6 +64,7 @@ export const ui = {
       'We bridge the critical gap between complex AI infrastructure and human-centric decision-making, engineering resilient systems that drive measurable business impact.',
     'services.cta': 'Schedule a Meeting',
     'services.exploreAI': 'Explore AI Integration',
+    'services.exploreService': 'Explore Service',
     'services.coreComp': 'Core Competencies',
     'services.aiTitle': 'AI & Intelligent Systems',
     'services.aiDesc':
@@ -211,6 +212,7 @@ export const ui = {
       'Karmaşık yapay zeka altyapısı ile insan merkezli karar alma arasındaki kritik boşluğu kapatarak ölçülebilir iş etkisi yaratan dayanıklı sistemler inşa ediyoruz.',
     'services.cta': 'Görüşme Planlayın',
     'services.exploreAI': 'Yapay Zeka Entegrasyonunu Keşfedin',
+    'services.exploreService': 'Hizmeti Keşfedin',
     'services.coreComp': 'Temel Yetkinlikler',
     'services.aiTitle': 'Yapay Zeka ve Akıllı Sistemler',
     'services.aiDesc':
