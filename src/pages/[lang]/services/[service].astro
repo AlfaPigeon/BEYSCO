@@ -1,0 +1,673 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import { type Lang } from '../../../i18n';
+import { asset } from '../../../utils';
+
+export const prerender = true;
+
+type ServiceKey = 'ai-intelligent-systems' | 'custom-software' | 'strategic-consulting' | 'cloud-backend-engineering' | 'interactive-simulation';
+
+type ServiceContent = {
+  badge: string;
+  title: string;
+  subtitle: string;
+  ctaPrimary: string;
+  ctaSecondary: string;
+  capabilitiesTitle: string;
+  capabilitiesSub: string;
+  capabilities: Array<{ title: string; desc: string; tags: [string, string]; icon: string }>;
+  roadmapTitle: string;
+  roadmap: Array<{ title: string; desc: string }>;
+  caseLabel: string;
+  caseTitle: string;
+  caseDesc: string;
+  caseLink: string;
+};
+
+export function getStaticPaths() {
+  const serviceOrder: ServiceKey[] = [
+    'ai-intelligent-systems',
+    'custom-software',
+    'strategic-consulting',
+    'cloud-backend-engineering',
+    'interactive-simulation',
+  ];
+
+  return (['en', 'tr'] as const).flatMap((lang) =>
+    serviceOrder.map((service) => ({ params: { lang, service } })),
+  );
+}
+
+const { lang, service } = Astro.params as { lang: Lang; service: ServiceKey };
+
+const serviceHeroImages: Record<ServiceKey, { src: string; alt: string }> = {
+  'ai-intelligent-systems': {
+    src: '/images/AI_ilustration.png',
+    alt: 'AI and intelligent systems visualization',
+  },
+  'custom-software': {
+    src: '/images/CostumSoftware_ilustration.png',
+    alt: 'Custom software engineering visualization',
+  },
+  'strategic-consulting': {
+    src: '/images/Consulting_ilustration.png',
+    alt: 'Strategic consulting planning visualization',
+  },
+  'cloud-backend-engineering': {
+    src: '/images/BackcandCloud_ilustration.png',
+    alt: 'Cloud and backend engineering visualization',
+  },
+  'interactive-simulation': {
+    src: '/images/Gamedev_ilustration.png',
+    alt: 'Interactive and simulation visualization',
+  },
+};
+
+const content: Record<Lang, Record<ServiceKey, ServiceContent>> = {
+  en: {
+    'ai-intelligent-systems': {
+      badge: 'Service Offering',
+      title: 'AI & Intelligent Systems',
+      subtitle:
+        'We design and develop AI-powered solutions that automate processes, analyze data, and bring intelligent capabilities into your products and workflows.',
+      ctaPrimary: 'Schedule Consultation',
+      ctaSecondary: 'Explore Capabilities',
+      capabilitiesTitle: 'Core Integration Capabilities',
+      capabilitiesSub: 'Methodical deployment of advanced computational frameworks tailored to enterprise requirements.',
+      capabilities: [
+        {
+          title: 'Model Integration',
+          desc: 'Integrate LLM and machine learning models into real business systems with dependable performance and secure architecture.',
+          tags: ['LLMOPS', 'API'],
+          icon: 'deployed_code',
+        },
+        {
+          title: 'Data Intelligence',
+          desc: 'Build data pipelines and semantic layers that transform unstructured data into actionable insights for teams and products.',
+          tags: ['RAG', 'DATA'],
+          icon: 'database',
+        },
+        {
+          title: 'Inference Optimization',
+          desc: 'Improve latency, throughput, and cost efficiency through model tuning, caching strategies, and workload-aware serving.',
+          tags: ['SCALE', 'PERF'],
+          icon: 'memory',
+        },
+      ],
+      roadmapTitle: 'Architectural Roadmap',
+      roadmap: [
+        {
+          title: 'Technical Assessment & Feasibility',
+          desc: 'We evaluate your current systems, data quality, and AI readiness to identify high-impact implementation opportunities.',
+        },
+        {
+          title: 'System Implementation & Integration',
+          desc: 'We deploy AI components with secure APIs and stable integration patterns to minimize disruption and maximize adoption.',
+        },
+        {
+          title: 'Scaling & Continuous Optimization',
+          desc: 'We monitor production usage, refine model behavior, and evolve infrastructure as demand and complexity increase.',
+        },
+      ],
+      caseLabel: 'Success Story',
+      caseTitle: 'Enterprise AI Modernization Program',
+      caseDesc:
+        'A global organization unified fragmented data and automation workflows with a resilient AI stack, improving response speed and operational quality.',
+      caseLink: 'Read Full Technical Brief',
+    },
+    'custom-software': {
+      badge: 'Service Offering',
+      title: 'Custom Software',
+      subtitle:
+        'We build scalable software tailored to your business, from SaaS platforms and B2B applications to custom enterprise systems.',
+      ctaPrimary: 'Schedule Consultation',
+      ctaSecondary: 'Explore Capabilities',
+      capabilitiesTitle: 'Core Delivery Capabilities',
+      capabilitiesSub: 'Engineering robust software systems designed for growth, reliability, and product velocity.',
+      capabilities: [
+        {
+          title: 'Product Engineering',
+          desc: 'From MVP to production-grade platforms, we build maintainable products with clear domain boundaries and clean architecture.',
+          tags: ['SAAS', 'B2B'],
+          icon: 'deployed_code',
+        },
+        {
+          title: 'System Design',
+          desc: 'We architect services, databases, and interfaces for predictable performance, resilience, and long-term evolution.',
+          tags: ['ARCH', 'API'],
+          icon: 'database',
+        },
+        {
+          title: 'Quality & Delivery',
+          desc: 'Testing, CI/CD, and release workflows ensure fast iteration with stability across teams and environments.',
+          tags: ['CI/CD', 'QUALITY'],
+          icon: 'memory',
+        },
+      ],
+      roadmapTitle: 'Delivery Roadmap',
+      roadmap: [
+        {
+          title: 'Discovery & Product Scoping',
+          desc: 'We define priorities, user flows, and technical scope to align software investments with measurable outcomes.',
+        },
+        {
+          title: 'Build & Integrate',
+          desc: 'We implement core features, integrate external systems, and establish a reliable release pipeline.',
+        },
+        {
+          title: 'Scale & Operate',
+          desc: 'We improve system performance, harden operations, and support feature expansion as your product grows.',
+        },
+      ],
+      caseLabel: 'Success Story',
+      caseTitle: 'B2B Platform Transformation',
+      caseDesc:
+        'A custom platform replaced disconnected legacy tools, reducing process friction and enabling rapid feature delivery across business units.',
+      caseLink: 'Read Full Technical Brief',
+    },
+    'strategic-consulting': {
+      badge: 'Service Offering',
+      title: 'Strategic Consulting',
+      subtitle:
+        'We help businesses make the right technology decisions through technical strategy, software architecture, product planning, and technology consulting.',
+      ctaPrimary: 'Schedule Consultation',
+      ctaSecondary: 'Explore Capabilities',
+      capabilitiesTitle: 'Core Advisory Capabilities',
+      capabilitiesSub: 'Turning business goals into clear, executable technical direction for sustainable growth.',
+      capabilities: [
+        {
+          title: 'Technology Strategy',
+          desc: 'Define priorities, target architecture, and phased execution plans grounded in business and operational realities.',
+          tags: ['STRATEGY', 'ROI'],
+          icon: 'deployed_code',
+        },
+        {
+          title: 'Architecture Governance',
+          desc: 'Establish standards, review mechanisms, and decision frameworks that keep engineering aligned at scale.',
+          tags: ['ARCH', 'RISK'],
+          icon: 'database',
+        },
+        {
+          title: 'Product Planning',
+          desc: 'Shape product roadmaps, team structure, and delivery models to balance speed, quality, and maintainability.',
+          tags: ['PLANNING', 'EXEC'],
+          icon: 'memory',
+        },
+      ],
+      roadmapTitle: 'Engagement Roadmap',
+      roadmap: [
+        {
+          title: 'Assessment & Goal Alignment',
+          desc: 'We map business objectives to current technical constraints and identify the most valuable decision points.',
+        },
+        {
+          title: 'Strategy & Blueprint Design',
+          desc: 'We produce actionable plans, architecture options, and sequencing guidance for implementation teams.',
+        },
+        {
+          title: 'Execution Enablement',
+          desc: 'We support rollout, decision governance, and adaptation as organizational needs evolve.',
+        },
+      ],
+      caseLabel: 'Success Story',
+      caseTitle: 'Enterprise Architecture Reset',
+      caseDesc:
+        'Leadership teams gained a practical modernization roadmap that reduced decision risk and accelerated implementation confidence.',
+      caseLink: 'Read Full Technical Brief',
+    },
+    'cloud-backend-engineering': {
+      badge: 'Service Offering',
+      title: 'Cloud & Backend Engineering',
+      subtitle:
+        'We build reliable backend infrastructure and cloud systems designed for performance, scalability, security, and long-term growth.',
+      ctaPrimary: 'Schedule Consultation',
+      ctaSecondary: 'Explore Capabilities',
+      capabilitiesTitle: 'Core Infrastructure Capabilities',
+      capabilitiesSub: 'Cloud-native systems and backend foundations engineered for resilient, secure operations.',
+      capabilities: [
+        {
+          title: 'Backend Architecture',
+          desc: 'Design modular services and data access layers to support high availability and clear ownership across teams.',
+          tags: ['BACKEND', 'API'],
+          icon: 'deployed_code',
+        },
+        {
+          title: 'Cloud Platforms',
+          desc: 'Implement cloud environments with observability, policy controls, and infrastructure automation as first-class concerns.',
+          tags: ['CLOUD', 'DEVOPS'],
+          icon: 'database',
+        },
+        {
+          title: 'Reliability Engineering',
+          desc: 'Increase uptime and incident readiness with proactive monitoring, capacity planning, and recovery design.',
+          tags: ['SRE', 'SECURITY'],
+          icon: 'memory',
+        },
+      ],
+      roadmapTitle: 'Infrastructure Roadmap',
+      roadmap: [
+        {
+          title: 'Platform Assessment',
+          desc: 'We audit services, deployment pipelines, and runtime bottlenecks to define practical improvement priorities.',
+        },
+        {
+          title: 'Build & Migration',
+          desc: 'We implement cloud and backend improvements with controlled migration paths and minimal operational risk.',
+        },
+        {
+          title: 'Operate & Optimize',
+          desc: 'We tune system reliability, cost efficiency, and security posture through ongoing observability and refinement.',
+        },
+      ],
+      caseLabel: 'Success Story',
+      caseTitle: 'Scalable Cloud Backbone',
+      caseDesc:
+        'A multi-region backend redesign improved response times, strengthened system resilience, and supported accelerated product growth.',
+      caseLink: 'Read Full Technical Brief',
+    },
+    'interactive-simulation': {
+      badge: 'Service Offering',
+      title: 'Interactive & Simulation',
+      subtitle:
+        'We create interactive 3D, VR, and simulation experiences for training, education, visualization, and specialized applications.',
+      ctaPrimary: 'Schedule Consultation',
+      ctaSecondary: 'Explore Capabilities',
+      capabilitiesTitle: 'Core Experience Capabilities',
+      capabilitiesSub: 'Designing immersive, real-time digital experiences that combine interaction, simulation, and measurable outcomes.',
+      capabilities: [
+        {
+          title: '3D Experience Design',
+          desc: 'Build responsive 3D interfaces and real-time interaction systems for guided workflows and scenario exploration.',
+          tags: ['3D', 'UX'],
+          icon: 'deployed_code',
+        },
+        {
+          title: 'VR Training Systems',
+          desc: 'Develop immersive training environments for operational readiness, safety, and repeatable learning outcomes.',
+          tags: ['VR', 'TRAINING'],
+          icon: 'database',
+        },
+        {
+          title: 'Simulation Engineering',
+          desc: 'Model complex systems and edge cases for visualization, planning, and decision support in specialized domains.',
+          tags: ['SIM', 'ANALYSIS'],
+          icon: 'memory',
+        },
+      ],
+      roadmapTitle: 'Experience Roadmap',
+      roadmap: [
+        {
+          title: 'Use-Case Discovery',
+          desc: 'We identify audience, context, and measurable outcomes to frame meaningful interactive system requirements.',
+        },
+        {
+          title: 'Prototype & Build',
+          desc: 'We deliver iterative prototypes and production features with a focus on usability, fidelity, and technical stability.',
+        },
+        {
+          title: 'Validation & Expansion',
+          desc: 'We validate impact through real usage and extend scenarios, content, and platform compatibility over time.',
+        },
+      ],
+      caseLabel: 'Success Story',
+      caseTitle: 'Immersive Training Rollout',
+      caseDesc:
+        'An interactive simulation suite improved training effectiveness and reduced onboarding time across distributed teams.',
+      caseLink: 'Read Full Technical Brief',
+    },
+  },
+  tr: {
+    'ai-intelligent-systems': {
+      badge: 'Hizmet Alanı',
+      title: 'Yapay Zeka ve Akıllı Sistemler',
+      subtitle:
+        'Süreçleri otomatikleştiren, veriyi analiz eden ve ürünlerinize ile iş akışlarınıza akıllı yetenekler kazandıran yapay zeka çözümleri tasarlıyor ve geliştiriyoruz.',
+      ctaPrimary: 'Danışmanlık Planlayın',
+      ctaSecondary: 'Yetenekleri Keşfedin',
+      capabilitiesTitle: 'Temel Entegrasyon Yetenekleri',
+      capabilitiesSub: 'Kurumsal ihtiyaçlara göre uyarlanmış ileri hesaplama çerçevelerinin metodik biçimde uygulanması.',
+      capabilities: [
+        {
+          title: 'Model Entegrasyonu',
+          desc: 'LLM ve makine öğrenimi modellerini güvenli mimari ve tutarlı performansla gerçek iş sistemlerine entegre ediyoruz.',
+          tags: ['LLMOPS', 'API'],
+          icon: 'deployed_code',
+        },
+        {
+          title: 'Veri Zekasi',
+          desc: 'Yapilandirilmamis veriyi ekipler ve urunler icin eyleme donusebilir gorulere ceviren veri boru hatlari kuruyoruz.',
+          tags: ['RAG', 'VERI'],
+          icon: 'database',
+        },
+        {
+          title: 'Cikarim Optimizasyonu',
+          desc: 'Model ayarlari, onbellekleme ve yuk-bilincli servis yaklasimlari ile gecikme, kapasite ve maliyeti iyilestiriyoruz.',
+          tags: ['OLCEK', 'PERF'],
+          icon: 'memory',
+        },
+      ],
+      roadmapTitle: 'Mimari Yol Haritasi',
+      roadmap: [
+        {
+          title: 'Teknik Degerlendirme ve Uygulanabilirlik',
+          desc: 'Mevcut sistemlerinizi, veri kalitesini ve yapay zeka hazirlik seviyesini analiz ederek yuksek etkili firsatlari belirliyoruz.',
+        },
+        {
+          title: 'Sistem Uygulamasi ve Entegrasyon',
+          desc: 'Guvenli API ve stabil entegrasyon kaliplari ile yapiyi minimum kesintiyle devreye aliyoruz.',
+        },
+        {
+          title: 'Olceklendirme ve Surekli Optimizasyon',
+          desc: 'Canli kullanim verilerini izleyerek model davranisini iyilestiriyor ve altyapiyi talebe gore gelistiriyoruz.',
+        },
+      ],
+      caseLabel: 'Basari Hikayesi',
+      caseTitle: 'Kurumsal YZ Modernizasyon Programi',
+      caseDesc:
+        'Kuresel bir kurum, daginik veri ve otomasyon akislarini dayanikli bir YZ yigininda birlestirerek operasyonel kaliteyi ve hizli karar almayi artirdi.',
+      caseLink: 'Tam Teknik Ozeti Oku',
+    },
+    'custom-software': {
+      badge: 'Hizmet Alanı',
+      title: 'Ozel Yazilim Cozumleri',
+      subtitle:
+        'SaaS platformlarindan B2B uygulamalara ve kuruma ozel sistemlere kadar, isinize uygun olceklenebilir yazilimlar gelistiriyoruz.',
+      ctaPrimary: 'Danışmanlık Planlayın',
+      ctaSecondary: 'Yetenekleri Keşfedin',
+      capabilitiesTitle: 'Temel Gelistirme Yetenekleri',
+      capabilitiesSub: 'Buyume, guvenilirlik ve urun hizi icin tasarlanmis dayanikli yazilim sistemleri.',
+      capabilities: [
+        {
+          title: 'Urun Muhendisligi',
+          desc: 'MVP asamasindan uretim seviyesine kadar temiz mimariyle surdurulebilir urunler gelistiriyoruz.',
+          tags: ['SAAS', 'B2B'],
+          icon: 'deployed_code',
+        },
+        {
+          title: 'Sistem Tasarimi',
+          desc: 'Servisleri, veritabanlarini ve arayuzleri uzun vadeli performans ve esneklik icin tasarliyoruz.',
+          tags: ['MIMARI', 'API'],
+          icon: 'database',
+        },
+        {
+          title: 'Kalite ve Teslimat',
+          desc: 'Test, CI/CD ve surum surecleri ile ekipler arasi hizli ama guvenli iterasyon sagliyoruz.',
+          tags: ['CI/CD', 'KALITE'],
+          icon: 'memory',
+        },
+      ],
+      roadmapTitle: 'Teslimat Yol Haritasi',
+      roadmap: [
+        {
+          title: 'Kesif ve Kapsamlandirma',
+          desc: 'Oncelikleri, kullanim akislarini ve teknik kapsami olculebilir hedeflerle hizaliyoruz.',
+        },
+        {
+          title: 'Gelistirme ve Entegrasyon',
+          desc: 'Cekirdek ozellikleri hayata geciriyor, dis sistemleri bagliyor ve guvenilir surum hatti kuruyoruz.',
+        },
+        {
+          title: 'Olcekleme ve Operasyon',
+          desc: 'Sistem performansini artiriyor, operasyonel dayanikliligi guclendiriyor ve urunu buyutuyoruz.',
+        },
+      ],
+      caseLabel: 'Basari Hikayesi',
+      caseTitle: 'B2B Platform Donusumu',
+      caseDesc:
+        'Kuruma ozel platform, daginik eski araclari degistirerek surec surtunmesini azaltti ve ozellik teslim hizini artirdi.',
+      caseLink: 'Tam Teknik Ozeti Oku',
+    },
+    'strategic-consulting': {
+      badge: 'Hizmet Alanı',
+      title: 'Stratejik Danismanlik',
+      subtitle:
+        'Teknik strateji, yazilim mimarisi, urun planlama ve teknoloji danismanligiyla isletmelerin dogru teknoloji kararlarini almasina yardimci oluyoruz.',
+      ctaPrimary: 'Danışmanlık Planlayın',
+      ctaSecondary: 'Yetenekleri Keşfedin',
+      capabilitiesTitle: 'Temel Danismanlik Yetenekleri',
+      capabilitiesSub: 'Is hedeflerini surdurulebilir teknik yone ceviren uygulanabilir karar cerceveleri.',
+      capabilities: [
+        {
+          title: 'Teknoloji Stratejisi',
+          desc: 'Is ve operasyon gercekliklerine dayali oncelik, hedef mimari ve asamali uygulama planlari olusturuyoruz.',
+          tags: ['STRATEJI', 'ROI'],
+          icon: 'deployed_code',
+        },
+        {
+          title: 'Mimari Yonetisim',
+          desc: 'Olcekte ekip uyumunu koruyan standartlar, inceleme mekanizmalari ve karar surecleri kuruyoruz.',
+          tags: ['MIMARI', 'RISK'],
+          icon: 'database',
+        },
+        {
+          title: 'Urun Planlama',
+          desc: 'Hiz, kalite ve surdurulebilirligi dengeleyen yol haritasi, ekip yapisi ve teslim modelleri tasarliyoruz.',
+          tags: ['PLAN', 'YURUTME'],
+          icon: 'memory',
+        },
+      ],
+      roadmapTitle: 'Calisma Yol Haritasi',
+      roadmap: [
+        {
+          title: 'Degerlendirme ve Hedef Uyumu',
+          desc: 'Is hedeflerini mevcut teknik kisitlarla eslestiriyor, en degerli karar noktalarini belirliyoruz.',
+        },
+        {
+          title: 'Strateji ve Plan Tasarimi',
+          desc: 'Uygulama ekipleri icin net planlar, mimari alternatifler ve siralama onerileri sunuyoruz.',
+        },
+        {
+          title: 'Uygulama Destegi',
+          desc: 'Yayina alma, karar yonetisimi ve degisen ihtiyaclara uyum sureclerinde aktif destek veriyoruz.',
+        },
+      ],
+      caseLabel: 'Basari Hikayesi',
+      caseTitle: 'Kurumsal Mimari Yeniden Yapilanmasi',
+      caseDesc:
+        'Yonetim ekipleri, karar riskini azaltan ve uygulama guvenini artiran pratik bir modernizasyon yol haritasi elde etti.',
+      caseLink: 'Tam Teknik Ozeti Oku',
+    },
+    'cloud-backend-engineering': {
+      badge: 'Hizmet Alanı',
+      title: 'Bulut ve Backend Muhendisligi',
+      subtitle:
+        'Performans, olceklenebilirlik, guvenlik ve uzun vadeli buyume icin tasarlanmis guvenilir backend altyapisi ve bulut sistemleri gelistiriyoruz.',
+      ctaPrimary: 'Danışmanlık Planlayın',
+      ctaSecondary: 'Yetenekleri Keşfedin',
+      capabilitiesTitle: 'Temel Altyapi Yetenekleri',
+      capabilitiesSub: 'Dayanikli ve guvenli operasyonlar icin bulut-yerel sistemler ve saglam backend temelleri.',
+      capabilities: [
+        {
+          title: 'Backend Mimarisi',
+          desc: 'Yuksek erisilebilirlik ve ekip sahipligini destekleyen moduler servisler ve veri katmanlari tasarliyoruz.',
+          tags: ['BACKEND', 'API'],
+          icon: 'deployed_code',
+        },
+        {
+          title: 'Bulut Platformlari',
+          desc: 'Gozlemlenebilirlik, politika kontrolu ve altyapi otomasyonunu merkeze alan bulut ortamlari kuruyoruz.',
+          tags: ['BULUT', 'DEVOPS'],
+          icon: 'database',
+        },
+        {
+          title: 'Guvenilirlik Muhendisligi',
+          desc: 'Proaktif izleme, kapasite planlama ve kurtarma tasarimi ile surekliligi guclendiriyoruz.',
+          tags: ['SRE', 'GUVENLIK'],
+          icon: 'memory',
+        },
+      ],
+      roadmapTitle: 'Altyapi Yol Haritasi',
+      roadmap: [
+        {
+          title: 'Platform Degerlendirmesi',
+          desc: 'Servisleri, dagitim hatlarini ve darboğazlari inceleyip uygulanabilir gelisim oncelikleri cikariyoruz.',
+        },
+        {
+          title: 'Kurulum ve Goc',
+          desc: 'Bulut ve backend gelistirmelerini kontrollu gecis planlariyla dusuk operasyonel riskle hayata geciriyoruz.',
+        },
+        {
+          title: 'Operasyon ve Optimizasyon',
+          desc: 'Surekli gozlem ve iyilestirme ile guvenilirlik, maliyet verimliligi ve guvenlik seviyesini artiriyoruz.',
+        },
+      ],
+      caseLabel: 'Basari Hikayesi',
+      caseTitle: 'Olceklenebilir Bulut Omurgasi',
+      caseDesc:
+        'Cok bolgeli backend yeniden tasarimi, yanit surelerini iyilestirdi, dayanikliligi artirdi ve urun buyumesini hizlandirdi.',
+      caseLink: 'Tam Teknik Ozeti Oku',
+    },
+    'interactive-simulation': {
+      badge: 'Hizmet Alanı',
+      title: 'Etkilesimli Sistemler ve Simulasyon',
+      subtitle:
+        'Egitim, ogretim, gorsellestirme ve ozel uygulamalar icin etkilesimli 3D, VR ve simulasyon deneyimleri gelistiriyoruz.',
+      ctaPrimary: 'Danışmanlık Planlayın',
+      ctaSecondary: 'Yetenekleri Keşfedin',
+      capabilitiesTitle: 'Temel Deneyim Yetenekleri',
+      capabilitiesSub: 'Etkilesim, simulasyon ve olculebilir sonuclari birlestiren gercek zamanli dijital deneyimler.',
+      capabilities: [
+        {
+          title: '3D Deneyim Tasarimi',
+          desc: 'Yonlendirilmis akislar ve senaryo kesfi icin gercek zamanli etkilesimli 3D arayuzler olusturuyoruz.',
+          tags: ['3D', 'UX'],
+          icon: 'deployed_code',
+        },
+        {
+          title: 'VR Egitim Sistemleri',
+          desc: 'Operasyonel hazirlik, guvenlik ve tekrar edilebilir ogrenme sonuclari icin surukleyici egitim ortamlari gelistiriyoruz.',
+          tags: ['VR', 'EGITIM'],
+          icon: 'database',
+        },
+        {
+          title: 'Simulasyon Muhendisligi',
+          desc: 'Karmasik sistemleri ve uc durumlari gorsellestirme, planlama ve karar destegi icin modelliyoruz.',
+          tags: ['SIM', 'ANALIZ'],
+          icon: 'memory',
+        },
+      ],
+      roadmapTitle: 'Deneyim Yol Haritasi',
+      roadmap: [
+        {
+          title: 'Kullanim Senaryosu Kesfi',
+          desc: 'Hedef kitleyi, baglami ve olculebilir ciktıları belirleyerek anlamli sistem gereksinimlerini netlestiriyoruz.',
+        },
+        {
+          title: 'Prototip ve Gelistirme',
+          desc: 'Kullanilabilirlik, gercekcilik ve teknik kararliliga odakli iteratif prototipler ve uretim ozellikleri sunuyoruz.',
+        },
+        {
+          title: 'Dogrulama ve Genisleme',
+          desc: 'Gercek kullanimla etkiyi dogrulayip senaryo, icerik ve platform kapsamini surekli genisletiyoruz.',
+        },
+      ],
+      caseLabel: 'Basari Hikayesi',
+      caseTitle: 'Surukleyici Egitim Yayginlastirma',
+      caseDesc:
+        'Etkilesimli simulasyon paketi, daginik ekiplerde egitim etkinligini artirip ise alim surelerini kisaltti.',
+      caseLink: 'Tam Teknik Ozeti Oku',
+    },
+  },
+};
+
+const page = content[lang]?.[service];
+const heroImage = serviceHeroImages[service];
+---
+
+<Layout title={`${page.title} - BEYSCO`} description={page.subtitle} lang={lang}>
+  <section class="relative pt-section-padding pb-24 px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto overflow-hidden">
+    <div class="absolute inset-0 orbital-bg opacity-50 z-0"></div>
+    <div class="relative z-10 grid md:grid-cols-2 gap-gutter items-center">
+      <div class="max-w-2xl">
+        <span class="font-label-sm text-label-sm text-secondary-container bg-surface-container-low px-3 py-1 rounded-sm uppercase tracking-widest mb-6 inline-block">
+          {page.badge}
+        </span>
+        <h1 class="font-headline-xl text-headline-xl md:text-[56px] md:leading-[64px] text-primary mb-6">
+          {page.title}
+        </h1>
+        <p class="font-body-lg text-body-lg text-on-surface-variant mb-10 max-w-lg">
+          {page.subtitle}
+        </p>
+        <div class="flex flex-wrap gap-4">
+          <a href={`/${lang}/contact`} class="bg-primary text-on-primary font-button text-button px-8 py-4 rounded hover:bg-primary/90 transition-colors shadow-sm">
+            {page.ctaPrimary}
+          </a>
+          <a href="#capabilities" class="border border-primary text-primary font-button text-button px-8 py-4 rounded hover:bg-surface-container-low transition-colors">
+            {page.ctaSecondary}
+          </a>
+        </div>
+      </div>
+      <div class="hidden md:block relative h-[500px] w-full rounded-lg overflow-hidden ambient-shadow border border-outline-variant/30 bg-surface-container-low">
+        <img
+          src={asset(heroImage.src)}
+          alt={heroImage.alt}
+          class="absolute inset-0 w-full h-full object-cover object-center"
+          loading="eager"
+        />
+      </div>
+    </div>
+  </section>
+
+  <section id="capabilities" class="py-section-padding px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto bg-surface-container-lowest">
+    <div class="mb-16 text-center max-w-3xl mx-auto">
+      <h2 class="font-headline-lg text-headline-lg text-primary mb-4">{page.capabilitiesTitle}</h2>
+      <p class="font-body-md text-body-md text-on-surface-variant">{page.capabilitiesSub}</p>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      {page.capabilities.map((capability) => (
+        <div class="bg-surface rounded-lg p-8 ambient-shadow border border-outline-variant/30 hover:border-secondary transition-colors group">
+          <div class="mb-6 h-12 w-12 bg-secondary/10 rounded flex items-center justify-center text-secondary group-hover:bg-secondary group-hover:text-on-secondary transition-colors">
+            <span class="material-symbols-outlined">{capability.icon}</span>
+          </div>
+          <h3 class="font-headline-lg-mobile text-headline-lg-mobile text-primary mb-3">{capability.title}</h3>
+          <p class="font-body-md text-body-md text-on-surface-variant mb-6">{capability.desc}</p>
+          <div class="flex gap-2 mt-auto">
+            <span class="font-label-sm text-label-sm bg-secondary-fixed text-on-secondary-fixed-variant px-2 py-1 rounded-sm">{capability.tags[0]}</span>
+            <span class="font-label-sm text-label-sm bg-secondary-fixed text-on-secondary-fixed-variant px-2 py-1 rounded-sm">{capability.tags[1]}</span>
+          </div>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <section class="py-section-padding px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
+    <h2 class="font-headline-lg text-headline-lg text-primary mb-16 text-center">{page.roadmapTitle}</h2>
+    <div class="relative">
+      <div class="absolute left-[28px] top-10 bottom-10 w-px bg-outline-variant/50 hidden md:block z-0"></div>
+      <div class="grid gap-12 relative z-10">
+        {page.roadmap.map((step, i) => (
+          <div class="flex flex-col md:flex-row gap-8 items-start">
+            <div class={`h-14 w-14 rounded-full ${i === 0 ? 'bg-primary text-on-primary' : 'bg-surface-container-high text-primary'} flex items-center justify-center font-headline-lg-mobile text-headline-lg-mobile shrink-0 z-10 border-4 border-background`}>
+              {i + 1}
+            </div>
+            <div class="bg-surface rounded-lg p-8 ambient-shadow border border-outline-variant/30 w-full md:w-[calc(100%-88px)]">
+              <h3 class="font-headline-lg-mobile text-headline-lg-mobile text-primary mb-2">{step.title}</h3>
+              <p class="font-body-md text-body-md text-on-surface-variant">{step.desc}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!--
+  <section class="py-section-padding px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
+    <div class="bg-primary rounded-xl overflow-hidden shadow-lg grid md:grid-cols-2">
+      <div class="p-12 flex flex-col justify-center">
+        <span class="font-label-sm text-label-sm text-secondary-fixed uppercase tracking-widest mb-4">{page.caseLabel}</span>
+        <h2 class="font-headline-lg text-headline-lg text-on-primary mb-6">{page.caseTitle}</h2>
+        <p class="font-body-md text-body-md text-primary-fixed-dim mb-8">
+          {page.caseDesc}
+        </p>
+        <a class="font-label-sm text-label-sm text-secondary-fixed flex items-center gap-2 hover:text-on-primary transition-colors uppercase tracking-widest" href={`/${lang}/contact`}>
+          {page.caseLink} <span class="material-symbols-outlined text-sm">arrow_forward</span>
+        </a>
+      </div>
+      <div class="relative h-64 md:h-auto">
+        <div class="absolute inset-0 bg-cover bg-center w-full h-full opacity-80 mix-blend-luminosity" style="background-image: linear-gradient(180deg, rgba(176,198,255,0.45), rgba(0,24,66,0.75));"></div>
+        <div class="absolute inset-0 bg-gradient-to-r from-primary to-transparent md:block hidden"></div>
+      </div>
+    </div>
+  </section>
+  -->
+</Layout>

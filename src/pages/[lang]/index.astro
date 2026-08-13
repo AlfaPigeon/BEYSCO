@@ -40,7 +40,7 @@ const t = useTranslations(lang);
       </h2>
       <div class="grid grid-cols-1 md:grid-cols-12 gap-base auto-rows-[minmax(300px,auto)]">
 
-        <!-- AI Integration (Large) -->
+        <!-- AI & Intelligent Systems (Large) -->
         <div class="md:col-span-8 bg-surface-container-lowest rounded-lg p-8 ambient-shadow border border-outline-variant/30 flex flex-col justify-between group overflow-hidden relative">
           <div class="absolute -right-10 -top-10 opacity-5 transition-transform duration-500 group-hover:scale-110">
             <span class="material-symbols-outlined text-[200px]">psychology</span>
@@ -52,7 +52,7 @@ const t = useTranslations(lang);
           </div>
         </div>
 
-        <!-- Cloud Infrastructure (Small) -->
+        <!-- Cloud & Backend Engineering (Small) -->
         <div class="md:col-span-4 bg-surface-container-lowest rounded-lg p-8 ambient-shadow border border-outline-variant/30 flex flex-col justify-between">
           <div>
             <div class="inline-block bg-inverse-primary text-on-primary-fixed-variant font-label-sm text-label-sm px-2 py-1 mb-6 uppercase rounded-sm">CloudOps</div>
@@ -62,11 +62,11 @@ const t = useTranslations(lang);
           </div>
         </div>
 
-        <!-- Enterprise Security (Small) -->
+        <!-- Custom Software (Small) -->
         <div class="md:col-span-4 bg-surface-container-lowest rounded-lg p-8 ambient-shadow border border-outline-variant/30 flex flex-col justify-between">
           <div>
-            <div class="inline-block bg-inverse-primary text-on-primary-fixed-variant font-label-sm text-label-sm px-2 py-1 mb-6 uppercase rounded-sm">SecOps</div>
-            <span class="material-symbols-outlined text-4xl text-primary mb-4 block">shield_lock</span>
+            <div class="inline-block bg-inverse-primary text-on-primary-fixed-variant font-label-sm text-label-sm px-2 py-1 mb-6 uppercase rounded-sm">Software</div>
+            <span class="material-symbols-outlined text-4xl text-primary mb-4 block">code_blocks</span>
             <h3 class="font-headline-lg-mobile text-headline-lg-mobile text-primary mb-4">{t('services.secTitle')}</h3>
             <p class="text-on-surface-variant text-sm">{t('services.secDesc')}</p>
           </div>
@@ -85,6 +85,16 @@ const t = useTranslations(lang);
               class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-500"
               src={asset(`/images/consulting-strategy.jpg`)}
             />
+          </div>
+        </div>
+
+        <!-- Interactive & Simulation (Full Width) -->
+        <div class="md:col-span-12 bg-surface-container-lowest rounded-lg p-8 ambient-shadow border border-outline-variant/30 flex flex-col md:flex-row gap-8 items-start justify-between">
+          <div class="flex-1">
+            <div class="inline-block bg-inverse-primary text-on-primary-fixed-variant font-label-sm text-label-sm px-2 py-1 mb-6 uppercase rounded-sm">Interactive</div>
+            <span class="material-symbols-outlined text-4xl text-primary mb-4 block">view_in_ar</span>
+            <h3 class="font-headline-lg text-headline-lg text-primary mb-4">{t('services.interactiveTitle')}</h3>
+            <p class="text-on-surface-variant">{t('services.interactiveDesc')}</p>
           </div>
         </div>
 

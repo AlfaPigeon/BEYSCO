@@ -10,6 +10,11 @@ export const ui = {
   en: {
     // nav
     'nav.services': 'Services',
+    'nav.serviceAI': 'AI & Intelligent Systems',
+    'nav.serviceCustom': 'Custom Software',
+    'nav.serviceStrategic': 'Strategic Consulting',
+    'nav.serviceCloud': 'Cloud & Backend Engineering',
+    'nav.serviceInteractive': 'Interactive & Simulation',
     'nav.aiIntegration': 'AI Integration',
     'nav.team': 'Team',
     'nav.partners': 'Partners',
@@ -60,18 +65,21 @@ export const ui = {
     'services.cta': 'Schedule a Meeting',
     'services.exploreAI': 'Explore AI Integration',
     'services.coreComp': 'Core Competencies',
-    'services.aiTitle': 'Conversational AI & LLMs',
+    'services.aiTitle': 'AI & Intelligent Systems',
     'services.aiDesc':
-      'Customizing and deploying enterprise-grade conversational AI. We integrate cutting-edge language models seamlessly into your existing architecture.',
+      'We design and develop AI-powered solutions that automate processes, analyze data, and bring intelligent capabilities into your products and workflows.',
     'services.cloudTitle': 'Cloud Infrastructure',
     'services.cloudDesc':
-      'Designing scalable, resilient, and highly available cloud systems tailored to specific workload demands.',
-    'services.secTitle': 'Enterprise Security',
+      'We build reliable backend infrastructure and cloud systems designed for performance, scalability, security, and long-term growth.',
+    'services.secTitle': 'Custom Software',
     'services.secDesc':
-      'Implementing robust zero-trust architectures and rigorous data security protocols across all integrated systems.',
+      'We build scalable software tailored to your business, from SaaS platforms and B2B applications to custom enterprise systems.',
     'services.stratTitle': 'Strategic Consulting',
     'services.stratDesc':
-      "Aligning deep technological implementation with concrete business ROI. We don't just deploy systems; we map them directly to organizational objectives.",
+      'We help businesses make the right technology decisions through technical strategy, software architecture, product planning, and technology consulting.',
+    'services.interactiveTitle': 'Interactive & Simulation',
+    'services.interactiveDesc':
+      'We create interactive 3D, VR, and simulation experiences for training, education, visualization, and specialized applications.',
     'services.viewCases': 'View Case Studies',
     'services.methodology': 'Methodical Integration',
     'services.methodSub': 'A rigorous, structured approach to deploying complex technologies.',
@@ -149,6 +157,11 @@ export const ui = {
   tr: {
     // nav
     'nav.services': 'Hizmetler',
+    'nav.serviceAI': 'Yapay Zeka ve Akıllı Sistemler',
+    'nav.serviceCustom': 'Özel Yazılım Çözümleri',
+    'nav.serviceStrategic': 'Stratejik Danışmanlık',
+    'nav.serviceCloud': 'Bulut ve Backend Mühendisliği',
+    'nav.serviceInteractive': 'Etkileşimli Sistemler ve Simülasyon',
     'nav.aiIntegration': 'Yapay Zeka Entegrasyonu',
     'nav.team': 'Ekip',
     'nav.partners': 'Ortaklar',
@@ -199,18 +212,21 @@ export const ui = {
     'services.cta': 'Görüşme Planlayın',
     'services.exploreAI': 'Yapay Zeka Entegrasyonunu Keşfedin',
     'services.coreComp': 'Temel Yetkinlikler',
-    'services.aiTitle': 'Konuşma Yapay Zekası ve Büyük Dil Modelleri',
+    'services.aiTitle': 'Yapay Zeka ve Akıllı Sistemler',
     'services.aiDesc':
-      "Kurumsal düzeyde konuşma yapay zekasını özelleştirip konuşlandırıyoruz.",
+      'Süreçleri otomatikleştiren, veriyi analiz eden ve ürünlerinize ile iş akışlarınıza akıllı yetenekler kazandıran yapay zeka çözümleri tasarlıyor ve geliştiriyoruz.',
     'services.cloudTitle': 'Bulut Altyapısı',
     'services.cloudDesc':
-      'Belirli iş yükü taleplerine uygun ölçeklenebilir, dayanıklı ve yüksek kullanılabilirlikli bulut sistemleri tasarlıyoruz.',
-    'services.secTitle': 'Kurumsal Güvenlik',
+      'Performans, ölçeklenebilirlik, güvenlik ve uzun vadeli büyüme için tasarlanmış güvenilir backend altyapısı ve bulut sistemleri geliştiriyoruz.',
+    'services.secTitle': 'Özel Yazılım Çözümleri',
     'services.secDesc':
-      'Tüm entegre sistemlerde sıfır güven mimarileri ve titiz veri güvenliği protokolleri uyguluyoruz.',
+      'SaaS platformlarından B2B uygulamalara ve kuruma özel sistemlere kadar, işinize uygun ölçeklenebilir yazılımlar geliştiriyoruz.',
     'services.stratTitle': 'Stratejik Danışmanlık',
     'services.stratDesc':
-      'Derin teknolojik uygulamayı somut iş yatırım getirisiyle hizalıyoruz. Sadece sistemleri konuşlandırmıyoruz; onları doğrudan kurumsal hedeflere bağlıyoruz.',
+      'Teknik strateji, yazılım mimarisi, ürün planlama ve teknoloji danışmanlığıyla işletmelerin doğru teknoloji kararlarını almasına yardımcı oluyoruz.',
+    'services.interactiveTitle': 'Etkileşimli Sistemler ve Simülasyon',
+    'services.interactiveDesc':
+      'Eğitim, öğretim, görselleştirme ve özel uygulamalar için etkileşimli 3D, VR ve simülasyon deneyimleri geliştiriyoruz.',
     'services.viewCases': 'Vaka Çalışmalarını Görüntüle',
     'services.methodology': 'Metodolojik Entegrasyon',
     'services.methodSub': 'Karmaşık teknolojileri konuşlandırmak için titiz, yapılandırılmış bir yaklaşım.',

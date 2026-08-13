@@ -14,6 +14,15 @@ function switchLang(targetLang: Lang): string {
 
 // matchSegment: '' = active on root/index, null = never active
 const currentSegment = currentPath.split('/').filter(Boolean)[1] ?? '';
+const serviceSlug = currentPath.split('/').filter(Boolean)[2] ?? '';
+
+const serviceLinks = [
+  { key: 'nav.serviceAI' as const, slug: 'ai-intelligent-systems' },
+  { key: 'nav.serviceCustom' as const, slug: 'custom-software' },
+  { key: 'nav.serviceStrategic' as const, slug: 'strategic-consulting' },
+  { key: 'nav.serviceCloud' as const, slug: 'cloud-backend-engineering' },
+  { key: 'nav.serviceInteractive' as const, slug: 'interactive-simulation' },
+];
 
 const navLinks = [
   { key: 'nav.home' as const, href: '/' + lang + '/', matchSegment: '' as string | null },
@@ -21,6 +30,9 @@ const navLinks = [
   //{ key: 'nav.partners' as const, href: getLocalePath(lang, '/partners'), matchSegment: 'partners' as string | null },
   { key: 'nav.contact' as const, href: getLocalePath(lang, '/contact'), matchSegment: 'contact' as string | null },
 ];
+
+const homeLink = navLinks[0];
+const contactLink = navLinks[1];
 ---
 
 <header class="bg-surface/80 backdrop-blur-md top-0 z-50 sticky border-b border-outline-variant/30 shadow-sm transition-all duration-300">
@@ -32,19 +44,54 @@ const navLinks = [
 
     <!-- Desktop Nav -->
     <nav class="hidden md:flex space-x-gutter items-center">
-      {navLinks.map((link) => {
-        const isActive = link.matchSegment !== null && currentSegment === link.matchSegment;
-        return (
-          <a
-            href={link.href}
-            class={isActive
-              ? 'font-button text-button text-secondary border-b-2 border-secondary pb-1 scale-95 transition-transform ease-out'
-              : 'font-button text-button text-on-surface-variant hover:text-primary transition-colors hover:bg-surface-container-low px-2 py-1 rounded'}
-          >
-            {t(link.key)}
-          </a>
-        );
-      })}
+      <a
+        href={homeLink.href}
+        class={currentSegment === homeLink.matchSegment
+          ? 'font-button text-button text-secondary border-b-2 border-secondary pb-1 scale-95 transition-transform ease-out'
+          : 'font-button text-button text-on-surface-variant hover:text-primary transition-colors hover:bg-surface-container-low px-2 py-1 rounded'}
+      >
+        {t(homeLink.key)}
+      </a>
+
+      <div class="relative group">
+        <a
+          href={getLocalePath(lang, '/services/ai-intelligent-systems')}
+          class={currentSegment === 'services'
+            ? 'font-button text-button text-secondary border-b-2 border-secondary pb-1 scale-95 transition-transform ease-out inline-flex items-center gap-1'
+            : 'font-button text-button text-on-surface-variant hover:text-primary transition-colors hover:bg-surface-container-low px-2 py-1 rounded inline-flex items-center gap-1'}
+        >
+          {t('nav.services')}
+          <span class="material-symbols-outlined text-sm">expand_more</span>
+        </a>
+        <div class="absolute left-0 top-full pt-2 opacity-0 invisible translate-y-1 group-hover:opacity-100 group-hover:visible group-hover:translate-y-0 transition-all duration-200">
+          <div class="min-w-[320px] rounded-lg border border-outline-variant/40 bg-surface shadow-sm p-2">
+            {serviceLinks.map((link) => {
+              const href = getLocalePath(lang, `/services/${link.slug}`);
+              const isActive = currentSegment === 'services' && serviceSlug === link.slug;
+
+              return (
+                <a
+                  href={href}
+                  class={isActive
+                    ? 'block rounded px-3 py-2 font-button text-button text-secondary bg-surface-container-low'
+                    : 'block rounded px-3 py-2 font-button text-button text-on-surface-variant hover:text-primary hover:bg-surface-container-low transition-colors'}
+                >
+                  {t(link.key)}
+                </a>
+              );
+            })}
+          </div>
+        </div>
+      </div>
+
+      <a
+        href={contactLink.href}
+        class={currentSegment === contactLink.matchSegment
+          ? 'font-button text-button text-secondary border-b-2 border-secondary pb-1 scale-95 transition-transform ease-out'
+          : 'font-button text-button text-on-surface-variant hover:text-primary transition-colors hover:bg-surface-container-low px-2 py-1 rounded'}
+      >
+        {t(contactLink.key)}
+      </a>
     </nav>
 
     <!-- Right side -->
@@ -79,11 +126,24 @@ const navLinks = [
   <!-- Mobile menu -->
   <div id="mobile-menu" class="hidden border-t border-outline-variant/30 bg-surface px-margin-mobile pb-4 pt-2 md:hidden">
     <nav class="flex flex-col gap-2">
-      {navLinks.map((link) => (
-        <a href={link.href} class="py-2 font-button text-button text-on-surface-variant hover:text-primary transition-colors">
+      <a href={homeLink.href} class="py-2 font-button text-button text-on-surface-variant hover:text-primary transition-colors">
+        {t(homeLink.key)}
+      </a>
+
+      <p class="pt-2 pb-1 font-label-sm text-label-sm uppercase text-on-surface-variant/80">{t('nav.services')}</p>
+      {serviceLinks.map((link) => (
+        <a
+          href={getLocalePath(lang, `/services/${link.slug}`)}
+          class="py-2 pl-3 font-button text-button text-on-surface-variant hover:text-primary transition-colors"
+        >
           {t(link.key)}
         </a>
       ))}
+
+      <a href={contactLink.href} class="py-2 font-button text-button text-on-surface-variant hover:text-primary transition-colors">
+        {t(contactLink.key)}
+      </a>
+
       <a href={getLocalePath(lang, '/contact')} class="mt-2 bg-primary hover:bg-primary/90 text-on-primary font-button text-button px-6 py-2 rounded shadow-sm transition-colors duration-200 block text-center">
         {t('nav.getStarted')}
       </a>
