@@ -1,0 +1,16 @@
+# Beysco
+
+> Beysco is a technology integrator. We design, build, and run production systems end to end: AI systems, cloud infrastructure, and custom software — delivered by one engineering team.
+
+## Services
+
+- AI & Intelligent Systems: automation, data analysis, and intelligent features shipped to production
+- Cloud Infrastructure: backend and cloud systems engineered for performance, security, and growth
+- Custom Software: SaaS platforms, B2B applications, and enterprise systems
+- Strategic Consulting: technical strategy, software architecture, and product planning
+- Interactive & Simulation: interactive 3D, VR, and simulation experiences for training and visualization
+
+## Links
+
+- [Website](https://beysco.com)
+- [Turkish version](https://beysco.com/tr)

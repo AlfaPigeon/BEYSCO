@@ -1,0 +1,255 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+<url>
+<loc>https://beysco.com/</loc>
+<xhtml:link rel="alternate" hreflang="en" href="https://beysco.com/" />
+<xhtml:link rel="alternate" hreflang="tr" href="https://beysco.com/tr" />
+<changefreq>monthly</changefreq>
+<priority>1</priority>
+</url>
+<url>
+<loc>https://beysco.com/tr</loc>
+<xhtml:link rel="alternate" hreflang="en" href="https://beysco.com/" />
+<xhtml:link rel="alternate" hreflang="tr" href="https://beysco.com/tr" />
+<changefreq>monthly</changefreq>
+<priority>1</priority>
+</url>
+<url>
+<loc>https://beysco.com/about</loc>
+<xhtml:link rel="alternate" hreflang="en" href="https://beysco.com/about" />
+<xhtml:link rel="alternate" hreflang="tr" href="https://beysco.com/tr/about" />
+<changefreq>monthly</changefreq>
+<priority>0.8</priority>
+</url>
+<url>
+<loc>https://beysco.com/tr/about</loc>
+<xhtml:link rel="alternate" hreflang="en" href="https://beysco.com/about" />
+<xhtml:link rel="alternate" hreflang="tr" href="https://beysco.com/tr/about" />
+<changefreq>monthly</changefreq>
+<priority>0.8</priority>
+</url>
+<url>
+<loc>https://beysco.com/careers</loc>
+<xhtml:link rel="alternate" hreflang="en" href="https://beysco.com/careers" />
+<xhtml:link rel="alternate" hreflang="tr" href="https://beysco.com/tr/careers" />
+<changefreq>monthly</changefreq>
+<priority>0.8</priority>
+</url>
+<url>
+<loc>https://beysco.com/tr/careers</loc>
+<xhtml:link rel="alternate" hreflang="en" href="https://beysco.com/careers" />
+<xhtml:link rel="alternate" hreflang="tr" href="https://beysco.com/tr/careers" />
+<changefreq>monthly</changefreq>
+<priority>0.8</priority>
+</url>
+<url>
+<loc>https://beysco.com/contact</loc>
+<xhtml:link rel="alternate" hreflang="en" href="https://beysco.com/contact" />
+<xhtml:link rel="alternate" hreflang="tr" href="https://beysco.com/tr/contact" />
+<changefreq>monthly</changefreq>
+<priority>0.8</priority>
+</url>
+<url>
+<loc>https://beysco.com/tr/contact</loc>
+<xhtml:link rel="alternate" hreflang="en" href="https://beysco.com/contact" />
+<xhtml:link rel="alternate" hreflang="tr" href="https://beysco.com/tr/contact" />
+<changefreq>monthly</changefreq>
+<priority>0.8</priority>
+</url>
+<url>
+<loc>https://beysco.com/news</loc>
+<xhtml:link rel="alternate" hreflang="en" href="https://beysco.com/news" />
+<xhtml:link rel="alternate" hreflang="tr" href="https://beysco.com/tr/news" />
+<changefreq>monthly</changefreq>
+<priority>0.8</priority>
+</url>
+<url>
+<loc>https://beysco.com/tr/news</loc>
+<xhtml:link rel="alternate" hreflang="en" href="https://beysco.com/news" />
+<xhtml:link rel="alternate" hreflang="tr" href="https://beysco.com/tr/news" />
+<changefreq>monthly</changefreq>
+<priority>0.8</priority>
+</url>
+<url>
+<loc>https://beysco.com/privacy</loc>
+<xhtml:link rel="alternate" hreflang="en" href="https://beysco.com/privacy" />
+<xhtml:link rel="alternate" hreflang="tr" href="https://beysco.com/tr/privacy" />
+<changefreq>monthly</changefreq>
+<priority>0.8</priority>
+</url>
+<url>
+<loc>https://beysco.com/tr/privacy</loc>
+<xhtml:link rel="alternate" hreflang="en" href="https://beysco.com/privacy" />
+<xhtml:link rel="alternate" hreflang="tr" href="https://beysco.com/tr/privacy" />
+<changefreq>monthly</changefreq>
+<priority>0.8</priority>
+</url>
+<url>
+<loc>https://beysco.com/services/ai</loc>
+<xhtml:link rel="alternate" hreflang="en" href="https://beysco.com/services/ai" />
+<xhtml:link rel="alternate" hreflang="tr" href="https://beysco.com/tr/services/ai" />
+<changefreq>monthly</changefreq>
+<priority>0.8</priority>
+</url>
+<url>
+<loc>https://beysco.com/tr/services/ai</loc>
+<xhtml:link rel="alternate" hreflang="en" href="https://beysco.com/services/ai" />
+<xhtml:link rel="alternate" hreflang="tr" href="https://beysco.com/tr/services/ai" />
+<changefreq>monthly</changefreq>
+<priority>0.8</priority>
+</url>
+<url>
+<loc>https://beysco.com/services/cloud</loc>
+<xhtml:link rel="alternate" hreflang="en" href="https://beysco.com/services/cloud" />
+<xhtml:link rel="alternate" hreflang="tr" href="https://beysco.com/tr/services/cloud" />
+<changefreq>monthly</changefreq>
+<priority>0.8</priority>
+</url>
+<url>
+<loc>https://beysco.com/tr/services/cloud</loc>
+<xhtml:link rel="alternate" hreflang="en" href="https://beysco.com/services/cloud" />
+<xhtml:link rel="alternate" hreflang="tr" href="https://beysco.com/tr/services/cloud" />
+<changefreq>monthly</changefreq>
+<priority>0.8</priority>
+</url>
+<url>
+<loc>https://beysco.com/services/consulting</loc>
+<xhtml:link rel="alternate" hreflang="en" href="https://beysco.com/services/consulting" />
+<xhtml:link rel="alternate" hreflang="tr" href="https://beysco.com/tr/services/consulting" />
+<changefreq>monthly</changefreq>
+<priority>0.8</priority>
+</url>
+<url>
+<loc>https://beysco.com/tr/services/consulting</loc>
+<xhtml:link rel="alternate" hreflang="en" href="https://beysco.com/services/consulting" />
+<xhtml:link rel="alternate" hreflang="tr" href="https://beysco.com/tr/services/consulting" />
+<changefreq>monthly</changefreq>
+<priority>0.8</priority>
+</url>
+<url>
+<loc>https://beysco.com/services/simulation</loc>
+<xhtml:link rel="alternate" hreflang="en" href="https://beysco.com/services/simulation" />
+<xhtml:link rel="alternate" hreflang="tr" href="https://beysco.com/tr/services/simulation" />
+<changefreq>monthly</changefreq>
+<priority>0.8</priority>
+</url>
+<url>
+<loc>https://beysco.com/tr/services/simulation</loc>
+<xhtml:link rel="alternate" hreflang="en" href="https://beysco.com/services/simulation" />
+<xhtml:link rel="alternate" hreflang="tr" href="https://beysco.com/tr/services/simulation" />
+<changefreq>monthly</changefreq>
+<priority>0.8</priority>
+</url>
+<url>
+<loc>https://beysco.com/services/software</loc>
+<xhtml:link rel="alternate" hreflang="en" href="https://beysco.com/services/software" />
+<xhtml:link rel="alternate" hreflang="tr" href="https://beysco.com/tr/services/software" />
+<changefreq>monthly</changefreq>
+<priority>0.8</priority>
+</url>
+<url>
+<loc>https://beysco.com/tr/services/software</loc>
+<xhtml:link rel="alternate" hreflang="en" href="https://beysco.com/services/software" />
+<xhtml:link rel="alternate" hreflang="tr" href="https://beysco.com/tr/services/software" />
+<changefreq>monthly</changefreq>
+<priority>0.8</priority>
+</url>
+<url>
+<loc>https://beysco.com/terms</loc>
+<xhtml:link rel="alternate" hreflang="en" href="https://beysco.com/terms" />
+<xhtml:link rel="alternate" hreflang="tr" href="https://beysco.com/tr/terms" />
+<changefreq>monthly</changefreq>
+<priority>0.8</priority>
+</url>
+<url>
+<loc>https://beysco.com/tr/terms</loc>
+<xhtml:link rel="alternate" hreflang="en" href="https://beysco.com/terms" />
+<xhtml:link rel="alternate" hreflang="tr" href="https://beysco.com/tr/terms" />
+<changefreq>monthly</changefreq>
+<priority>0.8</priority>
+</url>
+<url>
+<loc>https://beysco.com/news/boring-technology</loc>
+<xhtml:link rel="alternate" hreflang="en" href="https://beysco.com/news/boring-technology" />
+<xhtml:link rel="alternate" hreflang="tr" href="https://beysco.com/tr/news/boring-technology" />
+<changefreq>monthly</changefreq>
+<priority>0.8</priority>
+</url>
+<url>
+<loc>https://beysco.com/tr/news/boring-technology</loc>
+<xhtml:link rel="alternate" hreflang="en" href="https://beysco.com/news/boring-technology" />
+<xhtml:link rel="alternate" hreflang="tr" href="https://beysco.com/tr/news/boring-technology" />
+<changefreq>monthly</changefreq>
+<priority>0.8</priority>
+</url>
+<url>
+<loc>https://beysco.com/news/devfest-istanbul</loc>
+<xhtml:link rel="alternate" hreflang="en" href="https://beysco.com/news/devfest-istanbul" />
+<xhtml:link rel="alternate" hreflang="tr" href="https://beysco.com/tr/news/devfest-istanbul" />
+<changefreq>monthly</changefreq>
+<priority>0.8</priority>
+</url>
+<url>
+<loc>https://beysco.com/tr/news/devfest-istanbul</loc>
+<xhtml:link rel="alternate" hreflang="en" href="https://beysco.com/news/devfest-istanbul" />
+<xhtml:link rel="alternate" hreflang="tr" href="https://beysco.com/tr/news/devfest-istanbul" />
+<changefreq>monthly</changefreq>
+<priority>0.8</priority>
+</url>
+<url>
+<loc>https://beysco.com/news/new-website</loc>
+<xhtml:link rel="alternate" hreflang="en" href="https://beysco.com/news/new-website" />
+<xhtml:link rel="alternate" hreflang="tr" href="https://beysco.com/tr/news/new-website" />
+<changefreq>monthly</changefreq>
+<priority>0.8</priority>
+</url>
+<url>
+<loc>https://beysco.com/tr/news/new-website</loc>
+<xhtml:link rel="alternate" hreflang="en" href="https://beysco.com/news/new-website" />
+<xhtml:link rel="alternate" hreflang="tr" href="https://beysco.com/tr/news/new-website" />
+<changefreq>monthly</changefreq>
+<priority>0.8</priority>
+</url>
+<url>
+<loc>https://beysco.com/news/rag-pipeline-lessons</loc>
+<xhtml:link rel="alternate" hreflang="en" href="https://beysco.com/news/rag-pipeline-lessons" />
+<xhtml:link rel="alternate" hreflang="tr" href="https://beysco.com/tr/news/rag-pipeline-lessons" />
+<changefreq>monthly</changefreq>
+<priority>0.8</priority>
+</url>
+<url>
+<loc>https://beysco.com/tr/news/rag-pipeline-lessons</loc>
+<xhtml:link rel="alternate" hreflang="en" href="https://beysco.com/news/rag-pipeline-lessons" />
+<xhtml:link rel="alternate" hreflang="tr" href="https://beysco.com/tr/news/rag-pipeline-lessons" />
+<changefreq>monthly</changefreq>
+<priority>0.8</priority>
+</url>
+<url>
+<loc>https://beysco.com/news/studio-opening</loc>
+<xhtml:link rel="alternate" hreflang="en" href="https://beysco.com/news/studio-opening" />
+<xhtml:link rel="alternate" hreflang="tr" href="https://beysco.com/tr/news/studio-opening" />
+<changefreq>monthly</changefreq>
+<priority>0.8</priority>
+</url>
+<url>
+<loc>https://beysco.com/tr/news/studio-opening</loc>
+<xhtml:link rel="alternate" hreflang="en" href="https://beysco.com/news/studio-opening" />
+<xhtml:link rel="alternate" hreflang="tr" href="https://beysco.com/tr/news/studio-opening" />
+<changefreq>monthly</changefreq>
+<priority>0.8</priority>
+</url>
+<url>
+<loc>https://beysco.com/news/team-grows</loc>
+<xhtml:link rel="alternate" hreflang="en" href="https://beysco.com/news/team-grows" />
+<xhtml:link rel="alternate" hreflang="tr" href="https://beysco.com/tr/news/team-grows" />
+<changefreq>monthly</changefreq>
+<priority>0.8</priority>
+</url>
+<url>
+<loc>https://beysco.com/tr/news/team-grows</loc>
+<xhtml:link rel="alternate" hreflang="en" href="https://beysco.com/news/team-grows" />
+<xhtml:link rel="alternate" hreflang="tr" href="https://beysco.com/tr/news/team-grows" />
+<changefreq>monthly</changefreq>
+<priority>0.8</priority>
+</url>
+</urlset>
